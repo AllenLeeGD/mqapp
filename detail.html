@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Access-Control-Allow-Origin" content="">
+		<meta http-equiv="content-security-policy">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/custom.css" rel="stylesheet" />
+		<link href="css/ionicons.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div id="info" class="mui-off-canvas-wrap mui-draggable mui-slide-in">
+			<div class="mui-inner-wrap">
+				<header class="mui-bar mui-bar-nav">
+					<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+					<h1 class="mui-title ft-black font-size-14"> 详情 </h1>
+					<a class="mui-action-menu mui-pull-right">
+						<span class="mui-icon ion-network ft-blue"></span>
+					</a>
+				</header>
+				<nav class="mui-bar mui-bar-tab line-split">
+					<a id="aHome" class="mui-tab-item mui-active">
+						<span class="mui-icon mui-icon-home-filled"></span>
+						<span class="mui-tab-label">主页</span>
+					</a>
+					<a id="aNews" class="mui-tab-item">
+						<span class="mui-icon ion-ios-search-strong"></span>
+						<span class="mui-tab-label">探索</span>
+					</a>
+					<a id="aEvent" class="mui-tab-item">
+						<span class="mui-icon ion-ios-bell"><span class="mui-badge mui-badge-primary" style="color:#fff;background-color:#3492e9">12</span></span>
+						<span class="mui-tab-label">通知</span>
+					</a>
+					<a id="aAccount" class="mui-tab-item">
+						<span class="mui-icon ion-android-mail"></span>
+						<span class="mui-tab-label">私信</span>
+					</a>
+					<a id="aAccount" class="mui-tab-item">
+						<span class="mui-icon mui-icon-contact"></span>
+						<span class="mui-tab-label">我</span>
+					</a>
+				</nav>
+				<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+					<div id="div_list" class="mui-scroll">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell" style="padding-left: 0px;padding-top: 0px;">
+								<div class="mui-table-view mui-grid-view" style="height: 40px;">
+									<div class="mui-table-view-cell mui-mediafont-size-12 mui-text-left mui-col-xs-2">
+										<img src="images/head02.jpg" class="img-cycleborder" height="40px" />
+									</div>
+									<div class="mui-table-view-cell font-size-12 mui-text-left mui-col-xs-10">
+										<span class="ft-black font-size-14">Andrew Restuccia</span>
+										<span class="ft-grey font-size-12">@politico</span>
+										<span class="mui-icon ion-checkmark-circled font-size-12 ft-blue"></span>
+									</div>
+								</div>
+								<input id="pkid" type="hidden" />
+								<div class="mt-10 line-split-2"></div>
+								<div class="mui-table-view mui-grid-view mt-5">
+									<div class="mui-table-view-cell mui-text-left ft-black">
+										<span class="font-size-14 ft-black">WH official met with reps from a dozen conservative groups today to sell them on Trump's infrastructure plan _
+										<br />
+										<br />
+										<div id="imgs">
+											<img src="images/001.jpg" width="100%" />
+										</div> </span>
+									</div>
+								</div>
+								<div class="mui-clearfix"></div>
+								<div class="line-split-2 mt-10"></div>
+								<div class="mui-table-view mui-table-view-cell">
+									<div class="mui-pull-left font-size-14 ft-blue mui-text-left mui-col-xs-12">
+										<span class="ft-grey font-size-12">2017/6/2 上午9:20</span>
+									</div>
+								</div>								
+							</li>
+						</ul>
+						<div class="mui-clearfix"></div>
+						<div class="line-split-2"></div>
+						<ul class="mui-table-view mui-grid-view">
+							<li class="mui-table-view-cell mui-col-xs-12" style="text-align:left;">
+								<div class="font-size-14 ft-blue">
+									网友留言
+								</div>
+							</li>
+						</ul>
+						<ul id="replylist" class="mui-table-view line-split-2">
+							<li class="mui-table-view-cell mui-media">
+								<span class="mui-pull-left mt-5">
+								<img src="images/head01.jpg"  class="img-cycleborder" style="width:40px;height:40px;" />
+								</span>
+								<div class="mui-media-body mb-10" style="padding-left:10px;">
+									<p class="font-size-12">
+										<span class="ft-black">John Baliey</span>&nbsp;<span class="ft-grey font-size-12">@Bailey649</span>&nbsp;·&nbsp;2017-6-2 17:00&nbsp;
+										<div name="btnChat" pkid="${pkid}" class="mui-pull-right font-size-12 pd-t-8 ft-darkgrey mui-text-right mui-col-xs-3">
+											<span class="mui-icon ion-ios-chatboxes-outline font-size-14 ft-grey"></span> 回复
+										</div>
+									</p>
+									<p class="ft-black font-size-12" style="line-height:24px;">
+										This whole thing about accepting the Paris accords is just a gambit to get the attention directed at him again.
+									</p>
+								</div>
+							</li>
+						</ul>
+						<ul id="replylist" class="mui-table-view line-split-2">
+							<li class="mui-table-view-cell mui-media">
+								<span class="mui-pull-left mt-5">
+								<img src="images/head03.jpg"  class="img-cycleborder" style="width:40px;height:40px;" />
+								</span>
+								<div class="mui-media-body mb-10" style="padding-left:10px;">
+									<p class="font-size-12">
+										<span class="ft-black">Anna Yu</span>&nbsp;<span class="ft-grey font-size-12">@mht1992</span>&nbsp;·&nbsp;2017-3-20 08:30&nbsp;
+										<div name="btnChat" pkid="${pkid}" class="mui-pull-right font-size-12 pd-t-8 ft-darkgrey mui-text-right mui-col-xs-3">
+											<span class="mui-icon ion-ios-chatboxes-outline font-size-14 ft-grey"></span> 回复
+										</div>
+									</p>
+									<p class="ft-black font-size-12" style="line-height:24px;">
+										I could be wrong,but I believe that's his plan.Show his base that the leakers are fake.My 2cents.
+									</p>
+								</div>
+							</li>
+						</ul>
+						<div id="nodatatemlate" style="display: none;">
+							<li class="mui-table-view-cell">
+								<div class="mb-10" style="text-align: center;">
+									<p class="font-size-14">
+										还没有留言
+									</p>
+								</div>
+							</li>
+						</div>
+						<div id="amorediv">
+
+						</div>
+						<div id="aMoreContainer" style="display: none;">
+							<ul class="mui-table-view mui-grid-view line-split-2">
+								<li class="mui-table-view-cell mui-col-xs-12" style="text-align:center;">
+									<div id="${id}" class="font-size-15 ft-blue">
+										${message}
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script>
+			mui.ready(function() {
+				mui.init();
+				mui(".mui-scroll-wrapper").scroll();	
+			});
+		</script>
+	</body>
+
+</html>

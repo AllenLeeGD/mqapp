@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Access-Control-Allow-Origin" content="">
+		<meta http-equiv="content-security-policy">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/custom.css" rel="stylesheet" />
+		<link href="css/ionicons.min.css" rel="stylesheet" />
+
+	</head>
+
+	<body>
+		<div id="info" class="mui-off-canvas-wrap mui-draggable mui-slide-in">
+			<div class="mui-inner-wrap">
+				<header class="mui-bar mui-bar-nav">
+					<a class="mui-icon mui-action-back mui-icon-left-nav mui-pull-left"></a>
+					<h1 class="mui-title">
+						<div class="mui-search">
+							<input id="txtKeyword" type="text" style="background-color:#fff;color:#333;padding-left:8px;height:26px;font-size:14px;text-align:left;margin-top: 10px;" class="mui-input-clear" placeholder="请输入客户名称">
+						</div>
+					</h1>
+					<a id="btnSearch" class="mui-icon ion-android-search mui-pull-right"></a>
+				</header>
+				<div class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div id="clients"></div>
+					</div>
+				</div>
+				<div id="selected_template" style="display: none;">
+					<ul name="clientitem" class="mui-table-view mt-5" pkid="${pkid}" realname="${realname}" address="${address}" mobile="${mobile}">
+						<li class="mui-table-view-cell mui-media">
+							<!--<div class="mui-slider-right mui-disabled">
+								<a name="del_model" pkid="${pkid}" class="mui-btn mui-btn-red">删除</a>
+							</div>-->
+							<div class="mui-slider-handle yd_itembg" style="padding-left:15px;">
+								<div class="mui-table-view mui-grid-view">
+									<div class="mui-pull-left font-size-12 ft-darkgrey mui-text-left mui-col-xs-1"><img src="images/locate.png" style="width:25px;height:25px;"></div>
+									<div class="mui-pull-left font-size-14 pd-l-10 pd-t-4 mui-ellipsis ft-darkgrey mui-text-left mui-col-xs-8">${realname}</div>
+									<div class="mui-pull-left font-size-12 pd-l-10 pd-t-4 ft-grey mui-text-right mui-col-xs-3">${type}</div>
+								</div>
+								<div class="mui-clearfix"></div>
+								<div class="mt-5">
+									<div class="mui-ellipsis-2 font-size-12"><span class="mui-icon ion-android-pin ft-blue font-size-16"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="font-size-14">${address}</span></div>
+									<div class="mui-ellipsis-2 font-size-12"><span class="mui-icon ion-android-call ft-blue font-size-16"></span>&nbsp;&nbsp;&nbsp;<span class="font-size-14">${mobile}</span></div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script src="js/util.js"></script>
+<script src="js/script/clientsearch.js"></script>

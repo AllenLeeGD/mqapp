@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Access-Control-Allow-Origin" content="">
+		<meta http-equiv="content-security-policy">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/custom.css" rel="stylesheet" />
+		<link href="css/ionicons.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div id="info" class="mui-off-canvas-wrap mui-draggable mui-slide-in">
+			<div class="mui-inner-wrap">
+				<header class="mui-bar mui-bar-nav">
+					<!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+					<h1 class="mui-title ft-black font-size-14"> 私信 </h1>
+					<a class="mui-action-menu mui-pull-right">
+						<span class="mui-icon ion-android-textsms ft-blue"></span>
+					</a>
+				</header>
+				<nav class="mui-bar mui-bar-tab line-split">
+					<a id="aHome" class="mui-tab-item ">
+						<span class="mui-icon mui-icon-home-filled"></span>
+						<span class="mui-tab-label">主页</span>
+					</a>
+					<a id="aNews" class="mui-tab-item">
+						<span class="mui-icon ion-ios-search-strong"></span>
+						<span class="mui-tab-label">探索</span>
+					</a>
+					<a id="aEvent" class="mui-tab-item">
+						<span class="mui-icon ion-ios-bell"><span class="mui-badge mui-badge-primary" style="color:#fff;background-color:#3492e9">12</span></span>
+						<span class="mui-tab-label">通知</span>
+					</a>
+					<a id="aAccount" class="mui-tab-item mui-active">
+						<span class="mui-icon ion-android-mail"></span>
+						<span class="mui-tab-label">私信</span>
+					</a>
+					<a id="aAccount" class="mui-tab-item">
+						<span class="mui-icon mui-icon-contact"></span>
+						<span class="mui-tab-label">我</span>
+					</a>
+				</nav>
+				<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+					<div id="div_list" class="mui-scroll">
+						<div style="padding: 10px 5px;">
+							<div id="segmentedControl" class="mui-segmented-control">
+								<a class="mui-control-item mui-active" href="#item1">
+									系统（8）
+								</a>
+								<a class="mui-control-item" href="#item2">
+									私信
+								</a>
+							</div>
+						</div>
+						<ul id="replylist" class="mui-table-view line-split-2">
+							<li class="mui-table-view-cell mui-media">
+								<span class="mui-pull-left mt-5">
+								<img src="images/head01.jpg"  class="img-cycle" style="width:40px;height:40px;" />
+								</span>
+								<div class="mui-media-body" style="padding-left:10px;">
+									<p class="font-size-12">
+										<span class="ft-black">John Baliey</span>&nbsp;<span class="ft-grey font-size-12">@Bailey649</span>&nbsp;·&nbsp;2017-6-2 17:00&nbsp;
+									</p>
+									<p class="ft-black font-size-12" style="line-height:24px;">
+										This whole thing about accepting the Paris accords is just a gambit to get the attention directed at him again.
+									</p>
+								</div>
+							</li>
+						</ul>
+						<ul id="replylist" class="mui-table-view line-split-2">
+							<li class="mui-table-view-cell mui-media">
+								<span class="mui-pull-left mt-5">
+								<img src="images/head03.jpg"  class="img-cycle" style="width:40px;height:40px;" />
+								</span>
+								<div class="mui-media-body" style="padding-left:10px;">
+									<p class="font-size-12">
+										<span class="ft-black">Anna Yu</span>&nbsp;<span class="ft-grey font-size-12">@mht1992</span>&nbsp;·&nbsp;2017-3-20 08:30&nbsp;
+									</p>
+									<p class="ft-black font-size-12" style="line-height:24px;">
+										I could be wrong,but I believe that's his plan.Show his base that the leakers are fake.My 2cents.
+									</p>
+								</div>
+							</li>
+						</ul>
+						<div id="nodatatemlate" style="display: none;">
+							<li class="mui-table-view-cell">
+								<div class="mb-10" style="text-align: center;">
+									<p class="font-size-14">
+										还没有留言
+									</p>
+								</div>
+							</li>
+						</div>
+						<div id="amorediv">
+
+						</div>
+						<div id="aMoreContainer" style="display: none;">
+							<ul class="mui-table-view mui-grid-view line-split-2">
+								<li class="mui-table-view-cell mui-col-xs-12" style="text-align:center;">
+									<div id="${id}" class="font-size-15 ft-blue">
+										${message}
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/script/index.js"></script>
+	</body>
+
+</html>
