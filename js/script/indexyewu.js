@@ -9,7 +9,7 @@ document.getElementById("hsp").addEventListener("tap",function(){
 	document.location.href="hspAdd.html";
 });
 document.getElementById("aHome").addEventListener("tap",function(){
-	document.location.href="indexyewu.html";
+	document.location.href="indexyewu.html"; 
 });
 document.getElementById("aOrders").addEventListener("tap",function(){
 	document.location.href="ordersyewu.html";

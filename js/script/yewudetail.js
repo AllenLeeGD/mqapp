@@ -10,9 +10,10 @@ function getOuttype(outtype){
 document.getElementById("btnBack").addEventListener("tap",function(){
 	document.location.href = "ordersyewu.html";
 });
-function loaddata() {
+function loaddgs() {
 	var util = new Util();
 	var pkid = util.getParam("orderid");
+	document.getElementById("chu_content").style.display = "";
 	mui.ajax(edu_host + '/index.php/Mq/Mobileorder/findyewuorderdetail/pkid/'+pkid, {
 		type: 'post',
 		success: function(data) {
@@ -20,26 +21,25 @@ function loaddata() {
 			var typestr;
 			if(data.type==1){
 				typestr =  "大工商订气";	
-			}else if(data.type==2){
-				typestr = "大工商回收空瓶"; 
+				if(data.dgsstatus==0){
+					dgsstatusstr =  "已下单";	
+					document.getElementById("btnBackDiv").style.display="";
+				}else if(data.dgsstatus==1){
+					dgsstatusstr = "已派车"; 
+					document.getElementById("btnBackDiv").style.display="";
+				}else if(data.dgsstatus==2){
+					dgsstatusstr = "已出库"; 
+					document.getElementById("btnBackDiv").style.display="";
+				}else if(data.dgsstatus==3){
+					dgsstatusstr = "已入库"; 
+					document.getElementById("btnSaveDiv").style.display="";
+				}else if(data.dgsstatus==4){
+					dgsstatusstr = "已完成";
+					document.getElementById("btnBackDiv").style.display="";
+				}
+				document.getElementById("dgsstatus").innerHTML = dgsstatusstr;
 			}
-			if(data.dgsstatus==0){
-				dgsstatusstr =  "已下单";	
-				document.getElementById("btnBackDiv").style.display="";
-			}else if(data.dgsstatus==1){
-				dgsstatusstr = "已派车"; 
-				document.getElementById("btnBackDiv").style.display="";
-			}else if(data.dgsstatus==2){
-				dgsstatusstr = "已出库"; 
-				document.getElementById("btnBackDiv").style.display="";
-			}else if(data.dgsstatus==3){
-				dgsstatusstr = "已入库"; 
-				document.getElementById("btnSaveDiv").style.display="";
-			}else if(data.dgsstatus==4){
-				dgsstatusstr = "已完成";
-				document.getElementById("btnBackDiv").style.display="";
-			}
-			document.getElementById("dgsstatus").innerHTML = dgsstatusstr;
+			
 			document.getElementById("type").innerHTML = typestr;
 			document.getElementById("buyername").innerHTML = "客户名称:  "+data.buyername;
 			document.getElementById("buyeraddress").innerHTML = "客户地址:  "+data.buyeraddress;
@@ -69,6 +69,53 @@ function loaddata() {
 			document.getElementById("weight").innerHTML = "客户称重:  "+(util.isNullStr(data.weight)?"":data.weight);
 		}
 	});
+} 
+function loadhsp() {
+	var util = new Util();
+	var pkid = util.getParam("orderid");
+	mui.ajax(edu_host + '/index.php/Mq/Mobileorder/findyewuorderdetailhsp/pkid/'+pkid, {
+		type: 'post',
+		success: function(data) {
+			document.getElementById("username").innerHTML = data.username; 
+			var typestr;
+			if(data.type==2){
+				typestr = "大工商回收空瓶"; 
+				if(data.hspstatus==0){
+					dgsstatusstr =  "已下单";	
+					document.getElementById("btnBackDiv").style.display="";
+				}else if(data.hspstatus==1){
+					dgsstatusstr = "已派车"; 
+					document.getElementById("btnBackDiv").style.display="";
+				}else if(data.hspstatus==2){ 
+					dgsstatusstr = "已入库";
+					document.getElementById("btnSaveDiv").style.display="";
+				}else if(data.hspstatus==3){
+					dgsstatusstr = "已核价"; 
+					document.getElementById("btnBackDiv").style.display="";
+				}
+				document.getElementById("dgsstatus").innerHTML = dgsstatusstr;
+			}
+			
+			document.getElementById("type").innerHTML = typestr;
+			document.getElementById("buyername").innerHTML = "客户名称:  "+data.buyername;
+			document.getElementById("buyeraddress").innerHTML = "客户地址:  "+data.buyeraddress;
+			document.getElementById("buyermobile").innerHTML = "联系电话:  "+data.buyermobile;
+			document.getElementById("remark").innerHTML = "备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注:  "+data.remark;
+			document.getElementById("buytime").innerHTML = new Date(data.buytime*1000).Format("yyyy-MM-dd hh:mm:ss");
+			
+			document.getElementById("recaroptname").innerHTML = "预派车操作人:  "+(util.isNullStr(data.recaroptname)?"":data.recaroptname);
+			document.getElementById("recarnumber").innerHTML = "预派车牌号码:  "+(util.isNullStr(data.recarnumber)?"":data.recarnumber);
+			document.getElementById("recardate").innerHTML = "预计到达时间:  "+(util.isNullStr(data.recardate)?"":(new Date(data.recardate*1000).Format("yyyy-MM-dd hh:mm:ss")));			
+			
+			document.getElementById("inoptname").innerHTML = "入库操作人:  "+(util.isNullStr(data.inoptname)?"":data.inoptname);			
+			document.getElementById("inoptdate").innerHTML = "入库时间:  "+(util.isNullStr(data.inoptdate)?"":(new Date(data.inoptdate*1000).Format("yyyy-MM-dd hh:mm:ss")));
+			document.getElementById("incarnumber").innerHTML = "入库车牌号码:  "+(util.isNullStr(data.incarnumber)?"":data.incarnumber);
+			document.getElementById("cun").innerHTML = "客户存瓶:  "+(util.isNullStr(data.cun)?"":data.cun);
+			document.getElementById("huiempty").innerHTML = "回流空瓶:  "+(util.isNullStr(data.huiempty)?"":data.huiempty);
+			document.getElementById("huifull").innerHTML = "回流重瓶:  "+(util.isNullStr(data.huifull)?"":data.huifull);
+			document.getElementById("huishou").innerHTML = "回收瓶:  "+(util.isNullStr(data.huishou)?"":data.huishou);		
+		}
+	});
 }
 function loaddetail() {
 	var util = new Util();
@@ -81,7 +128,8 @@ function loaddetail() {
 			for(var i = 0; i < data.length; i++) {
 				var item = data[i];
 				var template = document.getElementById("detail_template").innerHTML;
-				template = template.replace("\$\{pname\}", item.pname+item.fname);
+				var itemname = (util.isNullStr(item.pname)?"":item.pname)+(util.isNullStr(item.fname)?"":item.fname);
+				template = template.replace("\$\{pname\}", itemname);
 				template = template.replace("\$\{productname\}", item.productname);
 				result += template;
 				
@@ -90,7 +138,7 @@ function loaddetail() {
 				if(item.bottleprice==0 && item.weightprice==0){
 					pricetemplate = pricetemplate.replace("\$\{msg\}", "请设置"+item.productname+"的单价");
 					pricetemplate = pricetemplate.replace("\$\{value\}", "");
-					pricetemplate = pricetemplate.replace("\$\{onley\}", "");	
+					pricetemplate = pricetemplate.replace("\$\{onley\}", "");	 
 					pricetemplate = pricetemplate.replace("\$\{needset\}", "yes");
 					if(item.productcount != "0"){
 						pricetemplate = pricetemplate.replace("\$\{pricetype\}", "bottle");
@@ -162,6 +210,12 @@ document.getElementById("aOrders").addEventListener("tap",function(){
 mui.ready(function() {
 	mui.init();
 	mui(".mui-scroll-wrapper").scroll();	
-	loaddata();
+	var util = new Util();
+	var type = util.getParam("type");
+	if(type=="1"){
+		loaddgs();
+	}else if(type=="2"){
+		loadhsp();
+	}
 	loaddetail();
 });
