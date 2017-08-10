@@ -22,7 +22,11 @@
 					<h1 class="mui-title ft-black font-size-14"> 订单详情 </h1>
 				</header>
 				<nav class="mui-bar mui-bar-tab line-split">
-					<a id="aOrders" class="mui-tab-item mui-active">
+					<a id="aHome" class="mui-tab-item mui-active">
+						<span class="mui-icon mui-icon-home-filled"></span>
+						<span class="mui-tab-label">主页</span>
+					</a>
+					<a id="aOrders" class="mui-tab-item">
 						<span class="mui-icon ion-ios-search-strong"></span>
 						<span class="mui-tab-label">订单</span>
 					</a>
@@ -39,18 +43,57 @@
 										<span id="username" class="ft-black font-size-14"></span>
 										<span id="type" class="ft-grey font-size-12"></span>
 										<span class="mui-icon ion-checkmark-circled font-size-12 ft-blue"></span>
+										<span id="dgsstatus" class="ft-blue font-size-12"></span>
 									</div>
 								</div>
 								<input id="pkid" type="hidden" />
 								<div class="mt-10 line-split-2"></div>
 								<div class="mui-table-view mui-grid-view mt-5">
-									<div class="mui-table-view-cell mui-text-left ft-black">
+									<div class="mui-table-view-cell mui-text-left ft-grey">
 										<span class="font-size-16 ft-black"><span class="mui-icon ion-android-contact font-size-16 ft-blue"></span>&nbsp;客户信息</span><br />
 										<span class="font-size-14 ft-grey">
 											<span id="buyername"></span>
 										<br /><span id="buyeraddress"></span>
 										<br /><span id="buyermobile"></span>
 										<br /><span id="remark"></span>
+										</span>
+									</div>
+									<div class="yd_split mt-5"></div>
+									<div class="mui-table-view-cell mui-text-left ft-darkgrey">
+										<span class="font-size-16 ft-black"><span class="mui-icon ion-android-car font-size-16 ft-blue"></span>&nbsp;预派车信息</span><br />
+										<span class="font-size-14 ft-grey">
+											<span id="recaroptname"></span>
+										<br /><span id="recardate"></span>
+										<br /><span id="recarnumber"></span>
+										</span>
+									</div>
+									<br />
+									<div class="yd_split mt-5"></div>
+									<div class="mui-table-view-cell mui-text-left ft-darkgrey">
+										<span class="font-size-16 ft-black"><span class="mui-icon ion-android-list font-size-16 ft-blue"></span>&nbsp;票房出库信息</span><br />
+										<span class="font-size-14 ft-grey">
+											<span id="outoptname"></span>
+										<br /><span id="carnumber"></span>
+										<br /><span id="outoptdate"></span>
+										<br /><span id="outjing"></span>
+										<br /><span id="outmao"></span>
+										<br /><span id="outpi"></span>
+										<br /><span id="outtype"></span>
+										</span>
+									</div>
+									<br />
+									<div class="yd_split mt-5"></div>
+									<div class="mui-table-view-cell mui-text-left ft-darkgrey">
+										<span class="font-size-16 ft-black"><span class="mui-icon ion-android-mail font-size-16 ft-blue"></span>&nbsp;票房入库信息</span><br />
+										<span class="font-size-14 ft-grey">
+											<span id="inoptname"></span>
+										<br /><span id="incarnumber"></span>
+										<br /><span id="inoptdate"></span>
+										<br /><span id="cun"></span>
+										<br /><span id="huiempty"></span>
+										<br /><span id="huifull"></span>
+										<br /><span id="huishou"></span>
+										<br /><span id="weight"></span>
 										</span>
 									</div>
 								</div>
@@ -90,17 +133,19 @@
 								</li>
 							</ul>
 						</div>
-						<div class="mui-input-group mt-5">
+						<div id="divSetprice" class="mui-input-group mt-5"> 
+							
+						</div>
+						<div id="price_template" style="display: none;">
 							<div class="mui-input-row"> 
-								<input id="recarnumber" type="text" class="font-size-14" placeholder="预派车牌号码">
-							</div>
-							<div class="mui-input-row">
-								<input id="recardate" type="text" style="width: 60%;font-size:14px;" readonly="readonly" placeholder="预计到达时间">																
-								<button id='btnStartDate' data-options='{"type":"datetime"}' class="mui-pull-right font-size-14 select-btn">请选择</button>	
+								<input id="${inputid}" name="priceitem" needset="${needset}" pricetype="${pricetype}" type="text" class="font-size-14" placeholder="${msg}" ${only} value="${value}">
 							</div>
 						</div>
-						<div class="mui-button-row mui-content-padded mt-10">
-							<button id="btnSave" type="button" class="mui-btn mui-btn-primary mui-btn-blue yd-btn-block">接单</button>
+						<div id="btnBackDiv" class="mui-button-row mui-content-padded mt-10" style="display: none;">
+							<button id="btnBack" type="button" class="mui-btn mui-btn-primary mui-btn-blue yd-btn-block">返回</button>
+						</div>
+						<div id="btnSaveDiv" class="mui-button-row mui-content-padded mt-10" style="display: none;">
+							<button id="btnSave" type="button" class="mui-btn mui-btn-primary mui-btn-blue yd-btn-block">核价</button>
 						</div>
 					</div>
 				</div>
@@ -110,7 +155,7 @@
 		<script src="js/util.js"></script>
 		<script src="js/picker.min.js"></script>
 		<script src="js/mui.poppicker.js"></script>
-		<script src="js/script/cheduidetail.js"></script>
+		<script src="js/script/yewudetail.js"></script>
 	</body>
 
 </html>

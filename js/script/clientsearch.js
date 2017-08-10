@@ -1,4 +1,4 @@
-function loaddata() {
+function loaddata(returnurl) {
 	var util = new Util();
 	var keyword = document.getElementById("txtKeyword").value;
 	if(util.isNullStr(keyword)) {
@@ -39,7 +39,12 @@ function loaddata() {
 						var clientname = this.getAttribute('realname');
 						var address = this.getAttribute('address');
 						var mobile = this.getAttribute('mobile');
-						document.location.href = "dgsAdd.html?type=client&clientid="+clientid+"&clientname="+base64_encode(clientname)+"&mobile="+base64_encode(mobile)+"&address="+base64_encode(address);
+						if(util.isNullStr(returnurl)){
+							document.location.href = "dgsAdd.html?type=client&clientid="+clientid+"&clientname="+base64_encode(clientname)+"&mobile="+base64_encode(mobile)+"&address="+base64_encode(address);	
+						}else if(returnurl=="kongping"){
+							document.location.href = "hspAdd.html?type=client&clientid="+clientid+"&clientname="+base64_encode(clientname)+"&mobile="+base64_encode(mobile)+"&address="+base64_encode(address);
+						}
+						
 					});
 				} 
 			}
@@ -52,5 +57,7 @@ document.getElementById("btnSearch").addEventListener("tap",function(){
 mui.ready(function() {
 	mui.init();
 	mui(".mui-scroll-wrapper").scroll();
-	loaddata();
+	var util = new Util();
+	var type = util.getParam("type");
+	loaddata(type);
 });

@@ -3,7 +3,7 @@ function loadClient(){
 	var old = JSON.parse(util.getvalueincache("client"));
 	var clientid = util.getParam("clientid");
 	var clientname = util.getParam("clientname");
-	var mobile = util.getParam("mobile");
+	var mobile = util.getParam("mobile");  
 	var address = util.getParam("address");
 	if((util.isNullStr(old) && !util.isNullStr(clientname)) || (!util.isNullStr(old) && (old.clientname!=clientname) && !util.isNullStr(clientname)) ){//第一次选客户或第N次选客户
 		document.getElementById("clientid").value = clientid;
@@ -31,41 +31,34 @@ function loadbottle(refresh){
 	var rname = util.getParam("rname");
 	var jid = util.getParam("jid");
 	var jname = util.getParam("jname");
-	var fid = util.getParam("fid");
-	var fname = util.getParam("fname");
 	var qid = util.getParam("qid");
 	var qname = util.getParam("qname");
 	var numbers = util.getParam("numbers");
-	var weight = util.getParam("weight");
-	var price = util.getParam("price");
 	
 	var item; 
-	if(!util.isNullStr(fname)){ 
-		item = base64_decode(fname)+" "+numbers+"个";
-	}else if(!util.isNullStr(pname)){
+	if(!util.isNullStr(pname)){
 		item = base64_decode(pname)+base64_decode(rname)+base64_decode(qname)+base64_decode(jname)
-		+" "+(util.isNullStr(numbers)?"":(numbers+"瓶"))
-		+(util.isNullStr(weight)?"":(weight+"吨")); 
+		+" "+(util.isNullStr(numbers)?"":(numbers+"瓶")); 
 	}
 	
 	var old = JSON.parse(util.getvalueincache("bottle")); 
 	//第一次选订单内容
-	if((old==null || old.length==0) && (!util.isNullStr(fname) || !util.isNullStr(pname)) && !refresh){
+	if((old==null || old.length==0) && !util.isNullStr(pname) && !refresh){
 		var template = document.getElementById("selected_template").innerHTML;
 		var pkid = util.uuid();
 		template = template.replace("\$\{pkid\}", pkid);
 		template = template.replace("\$\{bottle\}", item);
 		document.getElementById("alreadySelected").innerHTML = template;
 		var bottleAry = new Array();
-		bottleAry.push({"pkid":pkid,"bottle":item,"pid":pid,"pname":base64_decode(pname),"jid":jid,"jname":base64_decode(jname),"rid":rid,"rname":base64_decode(rname),"qid":qid,"qname":base64_decode(qname),"fname":base64_decode(fname),"fid":fid,"numbers":numbers,"weight":weight,"price":price});
+		bottleAry.push({"pkid":pkid,"bottle":item,"pid":pid,"pname":base64_decode(pname),"jid":jid,"jname":base64_decode(jname),"rid":rid,"rname":base64_decode(rname),"qid":qid,"qname":base64_decode(qname),"numbers":numbers});
 		util.putvalueincache("bottle",JSON.stringify(bottleAry));
 	}else if((old != null && old.length>0) || refresh){//第N次选订单内容，或者选客户后回到页面
 		var result = "";
 		if(!refresh){
-			if(!util.isNullStr(fname) || !util.isNullStr(pname)){//第N次选订单 
+			if(!util.isNullStr(pname)){//第N次选订单 
 				var pkid = util.uuid();
-				old.push({"pkid":pkid,"bottle":item,"pid":pid,"pname":base64_decode(pname),"jid":jid,"jname":base64_decode(jname),"rid":rid,"rname":base64_decode(rname),"qid":qid,"qname":base64_decode(qname),"fname":base64_decode(fname),"fid":fid,"numbers":numbers,"weight":weight,"price":price});
-			}
+				old.push({"pkid":pkid,"bottle":item,"pid":pid,"pname":base64_decode(pname),"jid":jid,"jname":base64_decode(jname),"rid":rid,"rname":base64_decode(rname),"qid":qid,"qname":base64_decode(qname),"numbers":numbers});
+			} 
 			util.putvalueincache("bottle",JSON.stringify(old));
 		}
 		for(var i = 0;i<old.length;i++){
@@ -106,11 +99,11 @@ mui.ready(function() {
 	mui.init();
 	mui(".mui-scroll-wrapper").scroll();	
 	//测试模拟
-	var util = new Util();    
+	var util = new Util();     
 	loaddata();
-});
+}); 
 document.getElementById("showClient").addEventListener("tap",function(){
-	document.location.href="clientsearch.html";
+	document.location.href="clientsearch.html?type=kongping";
 });
 document.getElementById("showPing").addEventListener("tap",function(){
 	var clientid = document.getElementById("clientid").value;
@@ -119,7 +112,7 @@ document.getElementById("showPing").addEventListener("tap",function(){
 		mui.toast("请先选择客户");
 		return;
 	}else{
-		document.location.href="pingAdd.html?memberid="+clientid;	
+		document.location.href="kongpingAdd.html?memberid="+clientid;	
 	}	
 }); 
 document.getElementById("doback").addEventListener("tap",function(){
@@ -144,7 +137,7 @@ document.getElementById("btnSave").addEventListener("tap",function(){
 	param.mobile = document.getElementById("mobile").value;
 	param.remark = document.getElementById("remark").value;
 	param.ordercontent = base64_encode(ordercontent);
-	mui.ajax(edu_host + '/index.php/Mq/Mobileorder/send', {
+	mui.ajax(edu_host + '/index.php/Mq/Mobileorder/sendhsp', {
 		type: 'post',
 		data:param,
 		success: function(data) { 

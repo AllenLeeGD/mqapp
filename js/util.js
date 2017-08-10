@@ -1,5 +1,5 @@
 //var edu_host = "http://120.25.204.117/edu_new_web"
-var edu_host = "http://192.168.0.104:8030";
+var edu_host = "http://localhost:8030";
 //var edu_host = "http://192.168.0.103:8090";
 //var edu_host = "http://www.kingleclub.com";
 //var edu_prefix = "/edu_new_web/";
@@ -10,7 +10,7 @@ var user_type_new = "new_user";
 var user_type_verifying = "verifying_user";
 var user_type_refuse = "refuse_user";
 
-var Util = function() {
+var Util = function() { 
 	this.toast = null;
 	/**
 	 ** Generate a random uuid.

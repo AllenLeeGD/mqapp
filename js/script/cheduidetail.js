@@ -29,8 +29,9 @@ function loaddetail() {
 		success: function(data) {
 			for(var i = 0; i < data.length; i++) {
 				var item = data[i];
+				var pname = (util.isNullStr(item.pname)?"":item.pname)+(util.isNullStr(item.fname)?"":item.fname);
 				var template = document.getElementById("detail_template").innerHTML;
-				template = template.replace("\$\{pname\}", item.pname+item.fname);
+				template = template.replace("\$\{pname\}", pname);
 				template = template.replace("\$\{productname\}", item.productname);
 				result += template;
 			}
@@ -107,4 +108,7 @@ mui.ready(function() {
 	mui(".mui-scroll-wrapper").scroll();	
 	loaddata();
 	loaddetail();
+});
+document.getElementById("aOrders").addEventListener("tap",function(){
+	document.location.href = "indexchedui.html";
 });
