@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Access-Control-Allow-Origin" content="">
+		<meta http-equiv="content-security-policy">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/custom.css" rel="stylesheet" />
+		<link href="css/ionicons.min.css" rel="stylesheet" />
+		<link href="css/edu.css" rel="stylesheet" />
+		<link href="css/mui.picker.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div id="info" class="mui-off-canvas-wrap mui-draggable mui-slide-in">
+			<div class="mui-inner-wrap">
+				<header class="mui-bar mui-bar-nav">
+					<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+					<h1 class="mui-title ft-black font-size-14"> 订单详情 </h1>
+				</header>
+				<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+					<div id="div_list" class="mui-scroll">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell" style="padding-left: 0px;padding-top: 0px;">
+								<div class="mui-table-view mui-grid-view" style="height: 40px;">
+									<div class="mui-table-view-cell mui-mediafont-size-12 mui-text-left mui-col-xs-2">
+										<img src="images/folder-document-icon.png" class="img-cycleborder" height="30px" />
+									</div>
+									<div class="mui-table-view-cell font-size-12 mui-text-left mui-col-xs-10">
+										<span class="ft-black font-size-14">居民及小工商订气</span>
+										<span class="mui-icon ion-checkmark-circled font-size-12 ft-blue"></span>
+									</div>
+								</div>
+								<input id="pkid" type="hidden" />
+								<div class="mt-10 line-split-2"></div>
+								<div class="mui-table-view mui-grid-view mt-5">
+									<div class="mui-table-view-cell mui-text-left ft-grey">
+										<span class="font-size-16 ft-black"><span class="mui-icon ion-android-contact font-size-16 ft-blue"></span>&nbsp;客户信息</span><br />
+										<span class="font-size-14 ft-grey">
+											<span id="buyername"></span>
+										<br /><span id="buyeraddress"></span>
+										<br /><span id="buyermobile"></span>
+										<br /><span id="remark"></span>
+										<br /><span id="buytime"></span>
+										</span>
+									</div>
+									<div class="yd_split mt-5"></div>
+									<div class="mui-table-view-cell mui-text-left ft-darkgrey">
+										<span class="font-size-16 ft-black"><span class="mui-icon ion-android-mail font-size-16 ft-blue"></span>&nbsp;分派门店信息</span><br />
+										<span class="font-size-14 ft-grey">
+											<span id="mname"></span>
+										<br /><span id="pname"></span>
+										<br /><span id="fenpaitime"></span>
+										</span>
+									</div>
+									<br />
+									<div class="yd_split mt-5"></div>
+									<br />
+									<div class="mui-table-view-cell mui-text-left ft-darkgrey">
+										<span class="font-size-16 ft-black"><span class="mui-icon ion-android-car font-size-16 ft-blue"></span>&nbsp;配送信息</span><br />
+										<span class="font-size-14 ft-grey">
+											<span id="songqiname"></span>
+										<br /><span id="carnumber"></span>
+										<br /><span id="setpeopleopttime"></span>
+										</span>
+									</div>
+								</div>
+								<div class="mui-clearfix"></div>
+								<div class="line-split-2 mt-10"></div>
+								<div class="mui-table-view mui-table-view-cell">
+									<div class="mui-pull-left font-size-14 ft-blue mui-text-left mui-col-xs-12">
+										合计金额:<span id="price" class="ft-red font-size-14"></span>
+									</div>
+								</div>								
+							</li>
+						</ul>
+						<div class="mui-clearfix"></div>
+						<div class="line-split-2"></div>
+						<ul class="mui-table-view mui-grid-view">
+							<li class="mui-table-view-cell mui-col-xs-12" style="text-align:left;">
+								<div class="font-size-14 ft-blue">
+									订单内容
+								</div>
+							</li>
+						</ul>
+						<div id="orderdetails"></div>
+						<div id="detail_template" style="display: none;">
+							<ul id="replylist" class="mui-table-view line-split-2">
+								<li class="mui-table-view-cell mui-media">
+									<span class="mui-pull-left mt-5"> 
+									<img src="images/box-full-icon.png"  class="img-cycleborder" style="width:30px;height:30px;" />
+									</span>
+									<div class="mui-media-body mb-10" style="padding-left:10px;">
+										<p class="font-size-12">
+											<span class="ft-black">单价</span>&nbsp;<span class="ft-blue font-size-12">${bottleprice}</span>&nbsp;&nbsp;<span class="ft-black">数量</span>&nbsp;<span class="ft-blue font-size-12">${productcount}</span>
+										</p>
+										<p class="ft-black font-size-12" style="line-height:24px;">
+											${productname}
+										</p>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div id="divSetprice" class="mui-input-group mt-5"> 
+							
+						</div>
+						<div id="btnPrintDiv" class="mui-button-row mui-content-padded mt-10" style="display: none;">
+							<button id="btnPrint" type="button" class="mui-btn mui-btn-primary mui-btn-blue yd-btn-block">打印小票</button>
+						</div>
+						<div id="btnWxDiv" class="mui-button-row mui-content-padded mt-10" style="display: none;">
+							<button id="btnWeixin" type="button" class="mui-btn mui-btn-primary mui-btn-green yd-btn-block">微信支付</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/picker.min.js"></script>
+		<script src="js/mui.poppicker.js"></script>
+		<script src="js/script/peisongdetail.js"></script>
+	</body>
+
+</html>

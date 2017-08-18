@@ -24,6 +24,8 @@ document.getElementById("submit_info").addEventListener("tap",function(){
 						document.location.href = "indexyewu.html";	
 					}else if(role==9){
 						document.location.href = "indexchedui.html";	
+					}else if(role==5 || role==6 || role==7){
+						document.location.href = "indexpeisong.html";	
 					}else{
 						mui.toast("没有开放此功能");
 					}
