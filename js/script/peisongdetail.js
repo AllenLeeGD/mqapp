@@ -30,7 +30,9 @@ function loadjm() {
 			document.getElementById("songqiname").innerHTML = "送气工:  "+(util.isNullStr(data.songqiname)?"":data.songqiname);
 			document.getElementById("carnumber").innerHTML = "配送车辆:  "+(util.isNullStr(data.carnumber)?"":data.carnumber);
 			document.getElementById("setpeopleopttime").innerHTML = "设置配送时间:  "+(util.isNullStr(data.setpeopleopttime)?"":(new Date(data.setpeopleopttime*1000).Format("yyyy-MM-dd hh:mm:ss")));
-
+			
+			document.getElementById("h_totalfee").value = data.price;
+			document.getElementById("h_orderid").value = data.pkid;
 		}
 	});
 } 
@@ -56,39 +58,17 @@ function loaddetail() {
 }
 
 document.getElementById("btnWeixin").addEventListener("tap",function(){
+	var totalfee = document.getElementById("h_totalfee").value;
+	var orderid = document.getElementById("h_orderid").value;
 	var util = new Util();
-	var pkid = util.getParam("orderid");
-	var param = [];
-	var items = document.getElementsByName("priceitem");
-	for(var i = 0;i<items.length;i++){
-		var needset = items[i].getAttribute("needset");
-		if(needset=="yes"){
-			var itemid = items[i].getAttribute("id");
-			var itemvalue = items[i].value;
-			var itemtype = items[i].getAttribute("pricetype");
-			if(util.isNullStr(itemvalue)){
-				mui.toast("请设置价格");
-				return;
-			}
-			param.push({"pkid":itemid,"value":itemvalue,"type":itemtype});
-		}
-	}
-	var transform = {};
-	transform.contents = base64_encode(JSON.stringify(param));
-	mui.ajax(edu_host + '/index.php/Mq/Mobileorder/setFinalPrice/orderid/'+pkid, {
+	if(!util.isNullStr(totalfee) && !util.isNullStr(totalfee)){
+		mui.ajax(edu_host + '/Payment/WX/qccode.php?orderid='+orderid+"&totalfee=1105", {
 		type: 'post',
-		data:transform,
 		success: function(data) {
-			if(data=="yes"){
-				mui.toast("核价成功");
-				setTimeout(function(){
-					document.location.href = "ordersyewu.html";
-				},1500);
-			}else{
-				mui.toast("核价失败,请联系系统管理员")
-			}
+			$("#qrcode").qrcode(data);
 		}
 	});
+	}
 });
 mui.ready(function() {
 	mui.init();
