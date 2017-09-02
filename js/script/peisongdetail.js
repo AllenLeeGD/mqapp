@@ -62,10 +62,12 @@ document.getElementById("btnWeixin").addEventListener("tap",function(){
 	var orderid = document.getElementById("h_orderid").value;
 	var util = new Util();
 	if(!util.isNullStr(totalfee) && !util.isNullStr(totalfee)){
-		mui.ajax(edu_host + '/Payment/WX/qccode.php?orderid='+orderid+"&totalfee=1105", {
+		var fee = parseFloat(totalfee)*100;
+		mui.ajax(edu_host + '/Payment/WX/qcorder.php?orderid='+orderid+"&totalfee="+fee, {
 		type: 'post',
 		success: function(data) {
-			$("#qrcode").qrcode(data);
+			var qrcode = base64_encode(data);
+			document.location.href="wxpay.html?qrcode="+qrcode;
 		}
 	});
 	}

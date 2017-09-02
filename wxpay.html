@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Access-Control-Allow-Origin" content="">
+		<meta http-equiv="content-security-policy">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/custom.css" rel="stylesheet" />
+		<link href="css/ionicons.min.css" rel="stylesheet" />
+		<link href="css/edu.css" rel="stylesheet" />
+		<link href="css/mui.picker.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div id="info" class="mui-off-canvas-wrap mui-draggable mui-slide-in">
+			<div class="mui-inner-wrap">
+				<header class="mui-bar mui-bar-nav">
+					<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+					<h1 class="mui-title ft-black font-size-14"> 订单微信支付 </h1>
+				</header>
+				<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+					<div id="div_list" class="mui-scroll">
+						<div id="qrcode" class="mt-30 text-center"></div>
+					</div>
+					<div class="text-center">
+						<span class="mt-10 font-size-14 yd_itembg">
+							请使用微信扫一扫完成支付
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<input type="hidden" id="h_totalfee" />
+		<input type="hidden" id="h_orderid" />
+		<script src="js/mui.min.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/picker.min.js"></script>
+		<script src="js/mui.poppicker.js"></script>
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="js/jquery.qrcode.min.js"></script>
+		<script src="js/script/wxpay.js"></script>
+	</body>
+
+</html>
