@@ -88,6 +88,28 @@ function loadbottle(refresh){
 		});
 	}
 } 
+function loadstartpoint(){
+	var arr = new Array();
+	var gradePicker = new mui.PopPicker();
+	arr.push({
+		value: 0,
+		text: "高栏码头"
+	});
+	arr.push({
+		value: 1,
+		text: "百岛"
+	});
+	gradePicker.setData(arr);
+	var showGradePickerButton = document.getElementById('showStartpoint');
+	showGradePickerButton.addEventListener('tap', function(event) {
+		gradePicker.show(function(items) {
+			document.getElementById('startpointStr').value = items[0].text;
+			document.getElementById('startpoint').value = items[0].value;						
+			//返回 false 可以阻止选择框的关闭
+			//return false;
+		});
+	}, false);
+}
 function loaddata(){
 	var util = new Util();
 	var type = util.getParam("type");
@@ -100,7 +122,7 @@ function loaddata(){
 	document.getElementById("username").value = username;
 	loadClient();	
 	loadbottle();
-	
+	loadstartpoint();
 } 
 mui.ready(function() {
 	mui.init();
@@ -133,6 +155,12 @@ document.getElementById("btnSave").addEventListener("tap",function(){
 	var ordercontent = util.getvalueincache("bottle");
 	if(util.isNullStr(clientid) || ordercontent==null || JSON.parse(ordercontent).length==0){
 		mui.toast("请选择客户并添加订单内容");
+		document.getElementById("btnSave").disabled = false;
+		return;
+	}
+	if(util.isNullStr(document.getElementById("startpoint").value)){
+		mui.toast("请选择发货点"); 
+		document.getElementById("btnSave").disabled = false;
 		return;
 	}
 	var param = {};
@@ -143,6 +171,7 @@ document.getElementById("btnSave").addEventListener("tap",function(){
 	param.address = document.getElementById("address").value;
 	param.mobile = document.getElementById("mobile").value;
 	param.remark = document.getElementById("remark").value;
+	param.startpoint = document.getElementById("startpoint").value;
 	param.ordercontent = base64_encode(ordercontent);
 	mui.ajax(edu_host + '/index.php/Mq/Mobileorder/send', {
 		type: 'post',

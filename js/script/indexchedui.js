@@ -18,6 +18,12 @@ function loaddata() {
 				template = template.replace("\$\{buyername\}", item.buyername);
 				template = template.replace("\$\{buyeraddress\}", item.buyeraddress);
 				template = template.replace("\$\{buyermobile\}", item.buyermobile);
+				if(item.startpoint==1){
+					template = template.replace("\$\{startpoint\}", "百岛");
+				}else{
+					template = template.replace("\$\{startpoint\}", "高栏码头");	
+				}
+				
 				result += template;
 			}
 			if(result==""){

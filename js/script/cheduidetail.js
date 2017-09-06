@@ -7,16 +7,21 @@ function loaddata() {
 			document.getElementById("username").innerHTML = data.username; 
 			var typestr;
 			if(data.type==1){
-				typestr =  "大工商订气";	
+				typestr =  "大工商订气";	 
 			}else if(data.type==2){
 				typestr = "大工商回收空瓶"; 
-			}
+			} 
 			document.getElementById("type").innerHTML = typestr;
 			document.getElementById("buyername").innerHTML = "客户名称:  "+data.buyername;
 			document.getElementById("buyeraddress").innerHTML = "客户地址:  "+data.buyeraddress;
 			document.getElementById("buyermobile").innerHTML = "联系电话:  "+data.buyermobile;
 			document.getElementById("remark").innerHTML = "备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注:  "+data.remark;
 			document.getElementById("buytime").innerHTML = new Date(data.buytime*1000).Format("yyyy-MM-dd hh:mm:ss");
+			if(data.startpoint==1){
+				document.getElementById("startpoint").innerHTML = "充气地点:  百岛";
+			}else{
+				document.getElementById("startpoint").innerHTML = "充气地点:  高栏码头";
+			}
 		}
 	});
 }
