@@ -1,5 +1,5 @@
 document.getElementById("btnPrint").addEventListener("tap",function(){
-	document.location.href = "indexpeisong.html";
+	document.location.href = "print.html";
 });
 function loadjm() {
 	var util = new Util();
@@ -72,7 +72,7 @@ document.getElementById("btnWeixin").addEventListener("tap",function(){
 	});
 	}
 });
-mui.ready(function() {
+mui.plusReady(function() {
 	mui.init();
 	mui(".mui-scroll-wrapper").scroll();	
 	var util = new Util();

@@ -73,7 +73,12 @@ document.getElementById("myorder").addEventListener("tap",function(){
 document.getElementById("otherorder").addEventListener("tap",function(){
 	loaddata("other");
 });
-mui.ready(function() {
+document.getElementById("logout").addEventListener("tap", function() {
+	localStorage.removeItem("USERID");
+	localStorage.removeItem("USERNAME");
+	document.location.href = "login.html";
+});
+mui.plusReady(function() {
 	mui.init();
 	mui(".mui-scroll-wrapper").scroll();	
 	loaddata("my");

@@ -1,5 +1,5 @@
 
-mui.ready(function() {
+mui.plusReady(function() {
 	mui.init();
 	mui(".mui-scroll-wrapper").scroll();	
 	var util = new Util();

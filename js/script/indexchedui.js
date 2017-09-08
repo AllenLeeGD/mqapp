@@ -52,7 +52,7 @@ document.getElementById("logout").addEventListener("tap",function(){
 	document.location.href="login.html";
 });
  
-mui.ready(function() {
+mui.plusReady(function() {
 	mui.init();
 	mui(".mui-scroll-wrapper").scroll();	
 	loaddata();

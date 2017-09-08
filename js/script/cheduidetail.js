@@ -108,7 +108,7 @@ document.getElementById("btnSave").addEventListener("tap",function(){
 		}
 	});
 });
-mui.ready(function() {
+mui.plusReady(function() {
 	mui.init();
 	mui(".mui-scroll-wrapper").scroll();	
 	loaddata();

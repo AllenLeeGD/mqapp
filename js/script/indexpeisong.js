@@ -58,7 +58,7 @@ document.getElementById("aOrders").addEventListener("tap",function(){
 	document.getElementById("aHome").classList.remove("mui-active");
 	loaddata("others");
 });
-mui.ready(function() {
+mui.plusReady(function() {
 	mui.init();
 	mui(".mui-scroll-wrapper").scroll();	
 	loaddata("my");

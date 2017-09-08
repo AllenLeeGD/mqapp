@@ -189,5 +189,241 @@
 				}
 			}
 		}
+	},
+	"dependencies": {
+		"pages": {
+			"login.html": {
+				"resources": [
+					"css/ionicons.min.css",
+					"js/util.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/custom.css",
+					"fonts/ionicons.ttf",
+					"js/script/login.js",
+					"indexyewu.html",
+					"indexchedui.html",
+					"ordersyewu.html",
+					"indexpeisong.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"indexyewu.html": {
+				"resources": [
+					"js/script/indexyewu.js",
+					"images/hsp.png",
+					"images/dgs.jpg",
+					"images/dgs.png",
+					"images/hsp.jpg",
+					"css/ionicons.min.css",
+					"js/util.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/custom.css",
+					"fonts/ionicons.ttf",
+					"ordersyewu.html",
+					"login.html",
+					"dgsAdd.html",
+					"hspAdd.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"ordersyewu.html": {
+				"resources": [
+					"images/folder-document-icon.png",
+					"js/script/ordersyewu.js",
+					"indexyewu.html",
+					"css/ionicons.min.css",
+					"js/util.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/custom.css",
+					"fonts/ionicons.ttf",
+					"login.html",
+					"yewudetail.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"indexchedui.html": {
+				"resources": [
+					"images/folder-document-icon.png",
+					"js/script/indexchedui.js",
+					"login.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"yewudetail.html": {
+				"resources": [
+					"images/box-full-icon.png",
+					"css/edu.css",
+					"js/mui.poppicker.js",
+					"js/script/yewudetail.js",
+					"ordersyewu.html",
+					"css/mui.picker.min.css",
+					"js/picker.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"dgsAdd.html": {
+				"resources": [
+					"js/script/dsgAdd.js",
+					"clientsearch.html",
+					"css/ionicons.min.css",
+					"css/edu.css",
+					"js/util.js",
+					"js/mui.min.js",
+					"js/mui.poppicker.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/mui.picker.min.css",
+					"css/custom.css",
+					"js/picker.min.js",
+					"pingAdd.html",
+					"indexyewu.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"clientsearch.html": {
+				"resources": [
+					"images/locate.png",
+					"js/script/clientsearch.js",
+					"dgsAdd.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pingAdd.html": {
+				"resources": [
+					"js/script/pingAdd.js",
+					"css/ionicons.min.css",
+					"css/edu.css",
+					"js/util.js",
+					"js/mui.min.js",
+					"js/mui.poppicker.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/mui.picker.min.css",
+					"css/custom.css",
+					"js/picker.min.js",
+					"dgsAdd.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"hspAdd.html": {
+				"resources": [
+					"indexyewu.html",
+					"js/script/hspAdd.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"peisongdetail.html": {
+				"resources": [
+					"images/box-full-icon.png",
+					"css/edu.css",
+					"js/mui.poppicker.js",
+					"js/jquery.qrcode.min.js",
+					"js/jquery-1.10.2.min.js",
+					"css/mui.picker.min.css",
+					"print.html",
+					"js/picker.min.js",
+					"js/script/peisongdetail.js",
+					"fonts/ionicons.ttf",
+					"indexpeisong.html",
+					"wxpay.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"indexpeisong.html": {
+				"resources": [
+					"peisongdetail.html",
+					"images/folder-document-icon.png",
+					"js/script/indexpeisong.js",
+					"login.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"print.html": {
+				"resources": [
+					"js/script/print.js",
+					"peisongdetail.html",
+					"css/ionicons.min.css",
+					"css/edu.css",
+					"js/util.js",
+					"js/mui.min.js",
+					"js/mui.poppicker.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/jquery.qrcode.min.js",
+					"js/jquery-1.10.2.min.js",
+					"css/mui.picker.min.css",
+					"css/custom.css",
+					"js/picker.min.js",
+					"images/folder-document-icon.png",
+					"images/wei.png",
+					"images/pei.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"wxpay.html": {
+				"resources": [
+					"js/script/wxpay.js",
+					"peisongdetail.html"
+				],
+				"refer": [],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"css/feedback.css",
+				"js/mui.picker.min.js",
+				"images/orderperson.png",
+				"fonts/ionicons.woff",
+				"images/layers-icon.png",
+				"images/welcome.jpg",
+				"js/mui.js",
+				"js/script/cheduidetail.js",
+				"css/mui.css",
+				"fonts/ionicons.eot",
+				"images/vipcard.png",
+				"cheduidetail.html",
+				"images/head03.jpg",
+				"images/order.png",
+				"detail.html",
+				"images/suc.png",
+				"images/nopic.png",
+				"images/nopic.jpg",
+				"fonts/ionicons.svg",
+				"js/vue.min.js",
+				"js/jquery-1.10.2.min.map",
+				"images/head02.jpg",
+				"js/script/kongpingAdd.js",
+				"images/err.png",
+				"images/iconfont-tianjia.png",
+				"images/load.gif",
+				"js/vue.js",
+				"account.html",
+				"kongpingAdd.html",
+				"images/nohead.png",
+				"mail.html",
+				"images/head01.jpg",
+				"css/mui.indexedlist.css",
+				"js/util.min.js"
+			]
+		}
 	}
 }

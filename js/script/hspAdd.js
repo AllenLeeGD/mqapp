@@ -95,7 +95,7 @@ function loaddata(){
 	loadbottle();
 	
 } 
-mui.ready(function() {
+mui.plusReady(function() {
 	mui.init();
 	mui(".mui-scroll-wrapper").scroll();	
 	//测试模拟

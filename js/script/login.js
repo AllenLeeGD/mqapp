@@ -21,7 +21,7 @@ document.getElementById("submit_info").addEventListener("tap",function(){
 				util.putvalueincache("USERNAME",returns[2]);
 				setTimeout(function(){
 					if(role==2){
-						document.location.href = "indexyewu.html";	
+						document.location.href = "ordersyewu.html";	
 					}else if(role==9){
 						document.location.href = "indexchedui.html";	
 					}else if(role==5 || role==6 || role==7){

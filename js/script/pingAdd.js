@@ -183,7 +183,7 @@ document.getElementById("btnPrice").addEventListener("tap",function(){
 	loadprice();
 })
 
-mui.ready(function() {
+mui.plusReady(function() {
 	mui.init();
 	mui(".mui-scroll-wrapper").scroll();	
 	loadping();

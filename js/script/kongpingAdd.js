@@ -123,7 +123,7 @@ document.getElementById("btnSave").addEventListener("tap",function(){
 	document.location.href = jurl;
 })
 
-mui.ready(function() {
+mui.plusReady(function() {
 	mui.init();
 	mui(".mui-scroll-wrapper").scroll();	
 	loadping();
