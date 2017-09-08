@@ -9,6 +9,8 @@ document.getElementById("submit_info").addEventListener("tap",function(){
 	var param = {}; 
 	param.code = base64_encode(code);
 	param.password = base64_encode(password);
+	util.putvalueincache("LOGIN_CODE",param.code);
+	util.putvalueincache("LOGIN_PASSWORD",param.password);
 	mui.ajax(edu_host + '/index.php/Mq/Mobilemember/login', {
 		type: 'post',
 		data:param,
@@ -37,7 +39,7 @@ document.getElementById("submit_info").addEventListener("tap",function(){
 		}
 	});
 });
-mui.ready(function() {
+mui.plusReady(function() {
 	mui.init();
 	mui(".mui-scroll-wrapper").scroll();	
 });

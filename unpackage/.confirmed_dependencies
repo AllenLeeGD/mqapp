@@ -1,222 +1,235 @@
 {
-	"login.html": {
-		"resources": [
-			"css/ionicons.min.css",
-			"js/util.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"css/custom.css",
-			"fonts/ionicons.ttf",
-			"js/script/login.js",
-			"indexyewu.html",
-			"indexchedui.html",
-			"ordersyewu.html",
-			"indexpeisong.html"
-		],
-		"refer": [
-			"indexyewu.html",
-			"indexchedui.html",
-			"ordersyewu.html",
-			"indexpeisong.html"
-		]
-	},
-	"indexyewu.html": {
-		"resources": [
-			"js/script/indexyewu.js",
-			"images/hsp.png",
-			"images/dgs.jpg",
-			"images/dgs.png",
-			"images/hsp.jpg",
-			"css/ionicons.min.css",
-			"js/util.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"css/custom.css",
-			"fonts/ionicons.ttf",
-			"ordersyewu.html",
-			"login.html",
-			"dgsAdd.html",
-			"hspAdd.html"
-		],
-		"refer": [
-			"ordersyewu.html",
-			"login.html",
-			"dgsAdd.html",
-			"hspAdd.html"
-		]
-	},
-	"ordersyewu.html": {
-		"resources": [
-			"images/folder-document-icon.png",
-			"js/script/ordersyewu.js",
-			"indexyewu.html",
-			"css/ionicons.min.css",
-			"js/util.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"css/custom.css",
-			"fonts/ionicons.ttf",
-			"login.html",
-			"yewudetail.html"
-		],
-		"refer": [
-			"indexyewu.html",
-			"login.html",
-			"yewudetail.html"
-		]
-	},
-	"indexchedui.html": {
-		"resources": [
-			"images/folder-document-icon.png",
-			"js/script/indexchedui.js",
-			"login.html"
-		],
-		"refer": [
-			"login.html"
-		]
-	},
-	"yewudetail.html": {
-		"resources": [
-			"images/box-full-icon.png",
-			"css/edu.css",
-			"js/mui.poppicker.js",
-			"js/script/yewudetail.js",
-			"ordersyewu.html",
-			"css/mui.picker.min.css",
-			"js/picker.min.js"
-		],
-		"refer": [
-			"ordersyewu.html"
-		]
-	},
-	"dgsAdd.html": {
-		"resources": [
-			"js/script/dsgAdd.js",
-			"clientsearch.html",
-			"css/ionicons.min.css",
-			"css/edu.css",
-			"js/util.js",
-			"js/mui.min.js",
-			"js/mui.poppicker.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"css/mui.picker.min.css",
-			"css/custom.css",
-			"js/picker.min.js",
-			"pingAdd.html",
-			"indexyewu.html"
-		],
-		"refer": [
-			"clientsearch.html",
-			"pingAdd.html",
-			"indexyewu.html"
-		]
-	},
-	"clientsearch.html": {
-		"resources": [
-			"images/locate.png",
-			"js/script/clientsearch.js",
-			"dgsAdd.html"
-		],
-		"refer": [
-			"dgsAdd.html"
-		]
-	},
-	"pingAdd.html": {
-		"resources": [
-			"js/script/pingAdd.js",
-			"css/ionicons.min.css",
-			"css/edu.css",
-			"js/util.js",
-			"js/mui.min.js",
-			"js/mui.poppicker.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"css/mui.picker.min.css",
-			"css/custom.css",
-			"js/picker.min.js",
-			"dgsAdd.html"
-		],
-		"refer": [
-			"dgsAdd.html"
-		]
-	},
-	"hspAdd.html": {
-		"resources": [
-			"indexyewu.html",
-			"js/script/hspAdd.js"
-		],
-		"refer": [
-			"indexyewu.html"
-		]
-	},
-	"peisongdetail.html": {
-		"resources": [
-			"images/box-full-icon.png",
-			"css/edu.css",
-			"js/mui.poppicker.js",
-			"js/jquery.qrcode.min.js",
-			"js/jquery-1.10.2.min.js",
-			"css/mui.picker.min.css",
-			"print.html",
-			"js/picker.min.js",
-			"js/script/peisongdetail.js",
-			"fonts/ionicons.ttf",
-			"indexpeisong.html",
-			"wxpay.html"
-		],
-		"refer": [
-			"print.html",
-			"indexpeisong.html",
-			"wxpay.html"
-		]
-	},
-	"indexpeisong.html": {
-		"resources": [
-			"peisongdetail.html",
-			"images/folder-document-icon.png",
-			"js/script/indexpeisong.js",
-			"login.html"
-		],
-		"refer": [
-			"peisongdetail.html",
-			"login.html"
-		]
-	},
-	"print.html": {
-		"resources": [
-			"js/script/print.js",
-			"peisongdetail.html",
-			"css/ionicons.min.css",
-			"css/edu.css",
-			"js/util.js",
-			"js/mui.min.js",
-			"js/mui.poppicker.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"js/jquery.qrcode.min.js",
-			"js/jquery-1.10.2.min.js",
-			"css/mui.picker.min.css",
-			"css/custom.css",
-			"js/picker.min.js",
-			"images/folder-document-icon.png",
-			"images/wei.png",
-			"images/pei.png"
-		],
-		"refer": [
-			"peisongdetail.html"
-		]
-	},
-	"wxpay.html": {
-		"resources": [
-			"js/script/wxpay.js",
-			"peisongdetail.html"
-		],
-		"refer": [
-			"peisongdetail.html"
-		]
-	}
+  "login.html": {
+    "resources": [
+      "css/ionicons.min.css",
+      "js/util.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/custom.css",
+      "fonts/ionicons.ttf",
+      "js/script/login.js",
+      "indexyewu.html",
+      "indexchedui.html",
+      "ordersyewu.html",
+      "indexpeisong.html"
+    ],
+    "refer": [
+      "indexyewu.html",
+      "indexchedui.html",
+      "ordersyewu.html",
+      "indexpeisong.html"
+    ]
+  },
+  "indexyewu.html": {
+    "resources": [
+      "js/script/indexyewu.js",
+      "images/hsp.png",
+      "images/dgs.jpg",
+      "images/dgs.png",
+      "images/hsp.jpg",
+      "css/ionicons.min.css",
+      "js/util.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/custom.css",
+      "fonts/ionicons.ttf",
+      "ordersyewu.html",
+      "login.html",
+      "dgsAdd.html",
+      "hspAdd.html"
+    ],
+    "refer": [
+      "ordersyewu.html",
+      "login.html",
+      "dgsAdd.html",
+      "hspAdd.html"
+    ]
+  },
+  "ordersyewu.html": {
+    "resources": [
+      "images/folder-document-icon.png",
+      "js/script/ordersyewu.js",
+      "indexyewu.html",
+      "css/ionicons.min.css",
+      "js/util.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/custom.css",
+      "fonts/ionicons.ttf",
+      "login.html",
+      "yewudetail.html"
+    ],
+    "refer": [
+      "indexyewu.html",
+      "login.html",
+      "yewudetail.html"
+    ]
+  },
+  "indexchedui.html": {
+    "resources": [
+      "images/folder-document-icon.png",
+      "js/script/indexchedui.js",
+      "login.html"
+    ],
+    "refer": [
+      "login.html"
+    ]
+  },
+  "yewudetail.html": {
+    "resources": [
+      "images/box-full-icon.png",
+      "css/edu.css",
+      "js/mui.poppicker.js",
+      "js/script/yewudetail.js",
+      "ordersyewu.html",
+      "css/mui.picker.min.css",
+      "js/picker.min.js"
+    ],
+    "refer": [
+      "ordersyewu.html"
+    ]
+  },
+  "dgsAdd.html": {
+    "resources": [
+      "js/script/dsgAdd.js",
+      "clientsearch.html",
+      "css/ionicons.min.css",
+      "css/edu.css",
+      "js/util.js",
+      "js/mui.min.js",
+      "js/mui.poppicker.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/mui.picker.min.css",
+      "css/custom.css",
+      "js/picker.min.js",
+      "pingAdd.html",
+      "indexyewu.html"
+    ],
+    "refer": [
+      "clientsearch.html",
+      "pingAdd.html",
+      "indexyewu.html"
+    ]
+  },
+  "clientsearch.html": {
+    "resources": [
+      "images/locate.png",
+      "js/script/clientsearch.js",
+      "dgsAdd.html"
+    ],
+    "refer": [
+      "dgsAdd.html"
+    ]
+  },
+  "pingAdd.html": {
+    "resources": [
+      "js/script/pingAdd.js",
+      "css/ionicons.min.css",
+      "css/edu.css",
+      "js/util.js",
+      "js/mui.min.js",
+      "js/mui.poppicker.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/mui.picker.min.css",
+      "css/custom.css",
+      "js/picker.min.js",
+      "dgsAdd.html"
+    ],
+    "refer": [
+      "dgsAdd.html"
+    ]
+  },
+  "hspAdd.html": {
+    "resources": [
+      "indexyewu.html",
+      "js/script/hspAdd.js"
+    ],
+    "refer": [
+      "indexyewu.html"
+    ]
+  },
+  "peisongdetail.html": {
+    "resources": [
+      "images/box-full-icon.png",
+      "css/edu.css",
+      "js/mui.poppicker.js",
+      "js/jquery.qrcode.min.js",
+      "js/jquery-1.10.2.min.js",
+      "css/mui.picker.min.css",
+      "print.html",
+      "js/picker.min.js",
+      "js/script/peisongdetail.js",
+      "fonts/ionicons.ttf",
+      "indexpeisong.html",
+      "wxpay.html"
+    ],
+    "refer": [
+      "print.html",
+      "indexpeisong.html",
+      "wxpay.html"
+    ]
+  },
+  "indexpeisong.html": {
+    "resources": [
+      "peisongdetail.html",
+      "images/folder-document-icon.png",
+      "js/script/indexpeisong.js",
+      "login.html"
+    ],
+    "refer": [
+      "peisongdetail.html",
+      "login.html"
+    ]
+  },
+  "print.html": {
+    "resources": [
+      "js/script/print.js",
+      "peisongdetail.html",
+      "css/ionicons.min.css",
+      "css/edu.css",
+      "js/util.js",
+      "js/mui.min.js",
+      "js/mui.poppicker.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/jquery.qrcode.min.js",
+      "js/jquery-1.10.2.min.js",
+      "css/mui.picker.min.css",
+      "css/custom.css",
+      "js/picker.min.js",
+      "images/folder-document-icon.png",
+      "images/wei.png",
+      "images/pei.png"
+    ],
+    "refer": [
+      "peisongdetail.html"
+    ]
+  },
+  "wxpay.html": {
+    "resources": [
+      "js/script/wxpay.js",
+      "peisongdetail.html"
+    ],
+    "refer": [
+      "peisongdetail.html"
+    ]
+  },
+  "index.html": {
+    "resources": [
+      "css/ionicons.min.css",
+      "js/script/index.js",
+      "js/util.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/custom.css",
+      "login.html",
+      "ordersyewu.html"
+    ],
+    "refer": []
+  }
 }
