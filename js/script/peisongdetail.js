@@ -12,10 +12,12 @@ function loadjm() {
 			}else if(data.jmstatus==4){
 				dgsstatusstr = "已收款"; 
 			}else if(data.jmstatus==5){
-				dgsstatusstr = "已存款"; 
+				dgsstatusstr = "已付款"; 
+				document.getElementById("btnWeixin").disabled=true;
 			}else if(data.jmstatus==6){
 				dgsstatusstr = "已核款"; 
 			}
+			document.getElementById("orderstatus").innerHTML = dgsstatusstr;
 			document.getElementById("price").innerHTML = " ￥"+data.price;
 			document.getElementById("buyername").innerHTML = "客户名称:  "+data.buyername;
 			document.getElementById("buyeraddress").innerHTML = "客户地址:  "+data.buyeraddress;
@@ -67,7 +69,7 @@ document.getElementById("btnWeixin").addEventListener("tap",function(){
 		type: 'post',
 		success: function(data) {
 			var qrcode = base64_encode(data);
-			document.location.href="wxpay.html?qrcode="+qrcode;
+			document.location.href="wxpay.html?qrcode="+qrcode+"&orderid="+orderid;
 		}
 	});
 	}

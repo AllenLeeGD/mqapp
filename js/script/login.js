@@ -42,4 +42,6 @@ document.getElementById("submit_info").addEventListener("tap",function(){
 mui.plusReady(function() {
 	mui.init();
 	mui(".mui-scroll-wrapper").scroll();	
+	plus.storage.removeItem("LOGIN_CODE");
+	plus.storage.removeItem("LOGIN_PASSWORD");
 });
