@@ -179,11 +179,15 @@
       "peisongdetail.html",
       "images/folder-document-icon.png",
       "js/script/indexpeisong.js",
-      "login.html"
+      "login.html",
+      "fonts/mui.ttf",
+      "fonts/ionicons.ttf",
+      "index.html"
     ],
     "refer": [
       "peisongdetail.html",
-      "login.html"
+      "login.html",
+      "index.html"
     ]
   },
   "print.html": {
@@ -204,19 +208,23 @@
       "js/picker.min.js",
       "images/folder-document-icon.png",
       "images/wei.png",
-      "images/pei.png"
+      "images/pei.png",
+      "wxpay.html"
     ],
     "refer": [
-      "peisongdetail.html"
+      "peisongdetail.html",
+      "wxpay.html"
     ]
   },
   "wxpay.html": {
     "resources": [
       "js/script/wxpay.js",
-      "peisongdetail.html"
+      "peisongdetail.html",
+      "print.html"
     ],
     "refer": [
-      "peisongdetail.html"
+      "peisongdetail.html",
+      "print.html"
     ]
   },
   "index.html": {
@@ -228,8 +236,11 @@
       "css/mui.min.css",
       "css/custom.css",
       "login.html",
-      "ordersyewu.html"
+      "ordersyewu.html",
+      "indexpeisong.html"
     ],
-    "refer": []
+    "refer": [
+      "indexpeisong.html"
+    ]
   }
 }

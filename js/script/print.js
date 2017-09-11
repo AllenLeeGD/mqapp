@@ -132,10 +132,32 @@ function print(mac_address) {
     console.log('设备已连接');
 
     if (bluetoothSocket.isConnected()) {
+    		var util = new Util();
         var outputStream = bluetoothSocket.getOutputStream();
         plus.android.importClass(outputStream);
-        var string = "打印测试\r\n";
-        var bytes = plus.android.invoke(string, 'getBytes', 'gbk');
+        var printstring = "            新海燃气\r\n";
+        if(util.isNullStr(print_obj.orderid)){
+        		printstring="信息加载中，请稍后再试...";
+        }else{
+        		printstring+="订单号码:  "+print_obj.orderid+"\r\n";
+        		printstring+=print_obj.price+"\r\n";
+        		printstring+=print_obj.paytype+"\r\n";
+        		printstring+=print_obj.buyername+"\r\n";
+        		printstring+=print_obj.buyeraddress+"\r\n";
+        		printstring+=print_obj.buyermobile+"\r\n";
+        		printstring+=print_obj.remark+"\r\n";
+        		printstring+=print_obj.mname+"\r\n";
+        		printstring+=print_obj.pname+"\r\n";
+        		printstring+="****************************\r\n";
+        		for(var i=0;i<print_obj.details.length;i++){
+        			var item = print_obj.details[i];
+        			printstring+=item.productname+"          "+"￥"+item.bottleprice+" ×"+item.productcount+"\r\n";
+        		}
+        		printstring+="****************************\r\n";
+        		printstring+="      "+(new Date()).Format("yyyy-MM-dd hh:mm:ss")+"\r\n";
+        		printstring+="\r\n\r\n\r\n\r\n";
+        }
+        var bytes = plus.android.invoke(printstring, 'getBytes', 'gbk');
         outputStream.write(bytes);
         outputStream.flush();
         device = null //这里关键
@@ -144,3 +166,61 @@ function print(mac_address) {
     }
 
 }
+var print_obj = {};
+print_obj.details = new Array();
+function loadjm() {
+	var util = new Util();
+	var pkid = util.getParam("orderid");
+	mui.ajax(edu_host + '/index.php/Mq/Mobileorder/findjmorderdetail/pkid/'+pkid, {
+		type: 'post',
+		success: function(data) {
+			print_obj.orderid = pkid;
+			if(data.jmstatus==5){//已付款
+				print_obj.paytype="支付方式:  微信支付";
+			}else{
+				print_obj.paytype="支付方式:  现金支付"; 
+			}
+			print_obj.price = "总金额:  ￥"+data.price;
+			print_obj.buyername = "客户名称:  "+data.buyername;
+			print_obj.buyeraddress = "客户地址:  "+data.buyeraddress;
+			print_obj.buyermobile = "联系电话:  "+data.buyermobile;
+			print_obj.remark = "备    注:  "+data.remark;
+			print_obj.buytime = "下单时间:  "+new Date(data.buytime*1000).Format("yyyy-MM-dd hh:mm:ss");
+			
+			print_obj.mname = "派送门店:  "+(util.isNullStr(data.mname)?"":data.mname);
+			print_obj.pname = "派送片区:  "+(util.isNullStr(data.pname)?"":data.pname);
+//			document.getElementById("fenpaitime").innerHTML = "分派时间:  "+(util.isNullStr(data.fenpaitime)?"":(new Date(data.fenpaitime*1000).Format("yyyy-MM-dd hh:mm:ss")));
+			
+			print_obj.songqinameL = "送气工:  "+(util.isNullStr(data.songqiname)?"":data.songqiname);
+			print_obj.carnumber = "配送车辆:  "+(util.isNullStr(data.carnumber)?"":data.carnumber);
+//			document.getElementById("setpeopleopttime").innerHTML = "设置配送时间:  "+(util.isNullStr(data.setpeopleopttime)?"":(new Date(data.setpeopleopttime*1000).Format("yyyy-MM-dd hh:mm:ss")));
+			
+		}
+	});
+} 
+function loaddetail() {
+	var util = new Util();
+	var result = "";
+	var priceresult = "";
+	var pkid = util.getParam("orderid");
+	mui.ajax(edu_host + '/index.php/Mq/Mobileorder/findcheduiorderdetailitem/pkid/'+pkid, {
+		type: 'post',
+		success: function(data) {
+			for(var i = 0; i < data.length; i++) {
+				var item = data[i];
+				
+//				template = template.replace("\$\{productcount\}", item.productcount);
+//				template = template.replace("\$\{productname\}", item.productname);
+//				template = template.replace("\$\{bottleprice\}", "￥"+item.bottleprice);
+				
+				print_obj.details.push(item);
+			}	
+		}
+	});
+}
+mui.plusReady(function() {
+	mui.init();
+	mui(".mui-scroll-wrapper").scroll();	
+	loadjm();
+	loaddetail();
+});
