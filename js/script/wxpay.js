@@ -17,7 +17,9 @@ function checkOrder(){
 	});
 }
 document.getElementById("btnPrint").addEventListener("tap",function(){
-	document.location.href = "print.html";
+	var util = new Util();
+	var orderid = util.getParam("orderid");
+	document.location.href = "print.html?orderid="+orderid;
 });
 mui.plusReady(function() {
 	mui.init();

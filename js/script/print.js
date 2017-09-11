@@ -130,7 +130,7 @@ function print(mac_address) {
     }
 
     console.log('设备已连接');
-
+	var nowdate = new Date();
     if (bluetoothSocket.isConnected()) {
     		var util = new Util();
         var outputStream = bluetoothSocket.getOutputStream();
@@ -151,13 +151,13 @@ function print(mac_address) {
         		printstring+="****************************\r\n";
         		for(var i=0;i<print_obj.details.length;i++){
         			var item = print_obj.details[i];
-        			printstring+=item.productname+"          "+"￥"+item.bottleprice+" ×"+item.productcount+"\r\n";
+        			printstring+=item.productname+"       "+"￥"+item.bottleprice+" ×"+item.productcount+"\r\n";
         		}
         		printstring+="****************************\r\n";
-        		printstring+="      "+(new Date()).Format("yyyy-MM-dd hh:mm:ss")+"\r\n";
-        		printstring+="\r\n\r\n\r\n\r\n";
+        		printstring+="      "+nowdate.Format("yyyy-MM-dd hh:mm:ss")+"\r\n";
+        		printstring+="  \r\n  \r\n  \r\n  \r\n";
         }
-        var bytes = plus.android.invoke(printstring, 'getBytes', 'gbk');
+        var bytes = plus.android.invoke(printstring+printstring+printstring, 'getBytes', 'gbk');
         outputStream.write(bytes);
         outputStream.flush();
         device = null //这里关键
