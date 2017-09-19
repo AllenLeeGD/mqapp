@@ -1,8 +1,29 @@
+var nowStatus = "my";
+document.getElementById("txtKeyword").addEventListener("tap", function() {
+	var options = {};
+	options.type = "date";
+	/*
+	 * 首次显示时实例化组件
+	 * 示例为了简洁，将 options 放在了按钮的 dom 上
+	 * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
+	 */
+	var picker = new mui.DtPicker(options);
+	picker.show(function(rs) {
+		var birthday = document.getElementById("txtKeyword");
+		birthday.value = rs.text;
+		picker.dispose();
+		loaddata(nowStatus); 
+	});
+})
 function loaddata(status) {
 	var util = new Util();
 	var userid = util.getvalueincache("USERID");
 	var result = "";
-	mui.ajax(edu_host + '/index.php/Mq/Mobileorder/findyewuorder/userid/'+userid+"/status/"+status, {
+	var searchdate = document.getElementById("txtKeyword").value;
+	if(util.isNullStr(searchdate)){
+		searchdate = "empty";
+	}
+	mui.ajax(edu_host + '/index.php/Mq/Mobileorder/findyewuorder/userid/'+userid+"/status/"+status+"/searchdate/"+searchdate, {
 		type: 'post',
 		success: function(data) {  
 			for(var i = 0; i < data.length; i++) {
@@ -68,9 +89,11 @@ document.getElementById("aOrders").addEventListener("tap",function(){
 	document.location.href="ordersyewu.html";
 });
 document.getElementById("myorder").addEventListener("tap",function(){
+	nowStatus = "my";
 	loaddata("my");
 });
 document.getElementById("otherorder").addEventListener("tap",function(){
+	nowStatus = "others";
 	loaddata("other");
 });
 document.getElementById("logout").addEventListener("tap", function() {

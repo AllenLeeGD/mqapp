@@ -159,6 +159,7 @@ function loadprice(jurl){
 }
 document.getElementById("btnSave").addEventListener("tap",function(){
 	var util = new Util();
+	var type = util.getParam("type");
 	var numbers = document.getElementById("numbers").value;
 	var weight = document.getElementById("weight").value;
 	if(util.isNullStr(numbers) && util.isNullStr(weight)){
@@ -175,10 +176,14 @@ document.getElementById("btnSave").addEventListener("tap",function(){
 	var fid = document.getElementById("fid").value;
 	var qname = document.getElementById("qname").value;
 	var qid = document.getElementById("qid").value;
-	var jurl = "dgsAdd.html?type=bottle&pid="+pid+"&pname="+base64_encode(pname)+"&rid="+rid+"&rname="+base64_encode(rname)+"&jid="+jid+"&jname="+base64_encode(jname)+
+	var pageurl = "dgsAdd.html?";
+	if(type=="jm"){
+		pageurl = "jmAdd.html?";
+	}
+	var jurl = pageurl+"type=bottle&pid="+pid+"&pname="+base64_encode(pname)+"&rid="+rid+"&rname="+base64_encode(rname)+"&jid="+jid+"&jname="+base64_encode(jname)+
 	"&fid="+fid+"&fname="+base64_encode(fname)+"&qid="+qid+"&qname="+base64_encode(qname)+"&numbers="+numbers+"&weight="+weight;
-	loadprice(jurl);
-})
+	loadprice(jurl);  
+})  
 document.getElementById("btnPrice").addEventListener("tap",function(){
 	loadprice();
 })

@@ -11,13 +11,13 @@ function loaddata(returnurl) {
 			for(var i = 0; i < data.length; i++) {
 				var item = data[i];
 				var template = document.getElementById("selected_template").innerHTML;
-				template = template.replace("\$\{pkid\}", item.pkid);
+				template = template.replace("\$\{pkid\}", item.pkid); 
 				template = template.replace("\$\{realname\}", item.realname);
 				template = template.replace("\$\{realname\}", item.realname);
-				template = template.replace("\$\{mobile\}", item.mobile);
-				template = template.replace("\$\{mobile\}", item.mobile);
-				template = template.replace("\$\{address\}", item.address);
-				template = template.replace("\$\{address\}", item.address);
+				template = template.replace("\$\{mobile\}", (util.isNullStr(item.mobile)?"":item.mobile));
+				template = template.replace("\$\{mobile\}", (util.isNullStr(item.mobile)?"":item.mobile));
+				template = template.replace("\$\{address\}", (util.isNullStr(item.address)?"":item.address));
+				template = template.replace("\$\{address\}", (util.isNullStr(item.address)?"":item.address));
 				var membertypestr="";
 				if(item.membertype==1){
 					membertypestr = "居民用户";
@@ -43,6 +43,8 @@ function loaddata(returnurl) {
 							document.location.href = "dgsAdd.html?type=client&clientid="+clientid+"&clientname="+base64_encode(clientname)+"&mobile="+base64_encode(mobile)+"&address="+base64_encode(address);	
 						}else if(returnurl=="kongping"){
 							document.location.href = "hspAdd.html?type=client&clientid="+clientid+"&clientname="+base64_encode(clientname)+"&mobile="+base64_encode(mobile)+"&address="+base64_encode(address);
+						}else if(returnurl=="jm"){
+							document.location.href = "jmAdd.html?type=client&clientid="+clientid+"&clientname="+base64_encode(clientname)+"&mobile="+base64_encode(mobile)+"&address="+base64_encode(address);
 						}
 						
 					});
@@ -54,7 +56,7 @@ function loaddata(returnurl) {
 document.getElementById("btnSearch").addEventListener("tap",function(){
 	loaddata();
 })
-mui.plusReady(function() {
+mui.plusReady(function() { 
 	mui.init();
 	mui(".mui-scroll-wrapper").scroll();
 	var util = new Util();

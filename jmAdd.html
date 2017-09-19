@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Access-Control-Allow-Origin" content="">
+		<meta http-equiv="content-security-policy">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/custom.css" rel="stylesheet" />
+		<link href="css/ionicons.min.css" rel="stylesheet" />
+		<link href="css/mui.picker.min.css" rel="stylesheet" />
+		<link href="css/edu.css" rel="stylesheet" />
+		<style>
+			.mui-preview-image.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+			
+			.mui-preview-header,
+			.mui-preview-footer {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				z-index: 10;
+			}
+			
+			.mui-preview-header {
+				height: 44px;
+				top: 0;
+			}
+			
+			.mui-preview-footer {
+				height: 50px;
+				bottom: 0px;
+			}
+			
+			.mui-preview-header .mui-preview-indicator {
+				display: block;
+				line-height: 25px;
+				color: #fff;
+				text-align: center;
+				margin: 15px auto 4;
+				width: 70px;
+				background-color: rgba(0, 0, 0, 0.4);
+				border-radius: 12px;
+				font-size: 16px;
+			}
+			
+			.mui-preview-image {
+				display: none;
+				-webkit-animation-duration: 0.5s;
+				animation-duration: 0.5s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+			
+			.mui-preview-image.mui-preview-in {
+				-webkit-animation-name: fadeIn;
+				animation-name: fadeIn;
+			}
+			
+			.mui-preview-image.mui-preview-out {
+				background: none;
+				-webkit-animation-name: fadeOut;
+				animation-name: fadeOut;
+			}
+			
+			.mui-preview-image.mui-preview-out .mui-preview-header,
+			.mui-preview-image.mui-preview-out .mui-preview-footer {
+				display: none;
+			}
+			
+			.mui-zoom-scroller {
+				position: absolute;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				-webkit-backface-visibility: hidden;
+			}
+			
+			.mui-zoom {
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+			
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
+			
+			.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%;
+			}
+			
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+				display: inline-table;
+			}
+			
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+				display: table-cell;
+				vertical-align: middle;
+			}
+			
+			.mui-preview-loading {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+			
+			.mui-preview-loading.mui-active {
+				display: block;
+			}
+			
+			.mui-preview-loading .mui-spinner-white {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+				height: 50px;
+				width: 50px;
+			}
+			
+			.mui-preview-image img.mui-transitioning {
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+				transition: transform 0.5s ease, opacity 0.5s ease;
+			}
+			
+			@-webkit-keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			
+			@-webkit-keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+				100% {
+					opacity: 0;
+				}
+			}
+			
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+				100% {
+					opacity: 0;
+				}
+			}
+			
+			p img {
+				max-width: 100%;
+				height: auto;
+			}
+			 
+			.mui-popup {
+				position: fixed;
+				z-index: 10000;
+				top: 30%;
+				left: 50%; 
+				display: none;
+				overflow: hidden;
+				width: 270px;
+				-webkit-transition-property: -webkit-transform, opacity;
+				transition-property: transform, opacity;
+				-webkit-transform: translate3d(-50%, -50%, 0) scale(1.185);
+				transform: translate3d(-50%, -50%, 0) scale(1.185);
+				text-align: center;
+				opacity: 0;
+				color: #000;
+				border-radius: 13px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav"> 
+			<a id="doback" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title ft-black font-size-14"> 发起居民及小工商流程 </h1>
+		</header>
+		<div id="head_div" style='height: 0px; width: 0px;overflow:hidden;'>
+			<input id="upload" name="upload" type="file" />
+		</div>
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div class="mui-input-group mt-20">
+					<div class="mui-input-row">
+						<input id="clientname" type="text" style="width: 60%;font-size:14px;" placeholder="客户名称" readonly="readonly">
+						<button id="showClient" type="button" class="mui-pull-right font-size-14 yd-select-btn">请选择</button>
+					</div>
+					<input type="hidden" id="clientid" />
+					<div class="mui-input-row"> 
+						<input id="username" type="text" readonly="readonly" class="font-size-14" placeholder="发起人">
+					</div>
+					<div class="mui-input-row">
+						<input id="address" type="text" class="mui-input-clear font-size-14" placeholder="客户地址">
+					</div>
+					<div class="mui-input-row">
+						<input id="mobile" type="text" class="mui-input-clear font-size-14" placeholder="客户联系电话">
+					</div>
+				</div>
+				<div class="mui-input-group mt-10">
+					<div class="mui-input-row" >
+						<input id="boatname" type="text" style="width: 60%;font-size:14px;" placeholder="订单内容" readonly="readonly">
+						<button id="showPing" type="button" class="mui-pull-right font-size-14 yd-select-btn">请选择</button>
+					</div>
+				</div>
+				<ul id="experience_div" class="mui-table-view">
+					<li style="text-align:left;padding-top: 5px;padding-bottom:5px;"><span class="font-size-14 pd-l-20 ft-grey">已添加的订单内容(左滑可删除)</span></li>
+				</ul>
+				<ul id="alreadySelected" class="mui-table-view">
+				</ul>
+				<div id="selected_template" style="display: none;">
+					<li class="mui-table-view-cell mui-media">
+						<div class="mui-slider-right mui-disabled">
+							<a name="del_model" pkid="${pkid}" class="mui-btn mui-btn-red">删除</a>
+						</div>
+						<div class="mui-slider-handle yd_itembg" style="padding-left:15px;">
+							<p class="mui-ellipsis ft-blue font-size-15">${bottle}
+							</p>
+						</div>
+					</li>
+				</div>
+				<div class="mui-input-group mt-10">
+					<div class="mui-media-body">
+						<textarea id="remark" rows="5" class="font-size-14" placeholder="备注"></textarea>
+					</div>
+				</div>
+				<div class="mui-button-row mui-content-padded mt-10">
+					<button id="btnSave" type="button" class="mui-btn mui-btn-primary mui-btn-blue yd-btn-block">发送</button>
+				</div>
+			</div>
+		</div>
+		<input type="hidden" id="deleteid">
+		<div id="deleteModelConfirm" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a id="doDeleteModel" href="#" style="color: #FF3B30;">删除</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#deleteModelConfirm"><b>取消</b></a>
+				</li>
+			</ul>
+		</div>
+		
+	</body>
+
+</html>
+<script src="js/mui.min.js"></script>
+<script src="js/picker.min.js"></script>
+<script src="js/mui.poppicker.js"></script>
+<script src="js/util.js"></script>
+<script src="js/script/jmAdd.js"></script>

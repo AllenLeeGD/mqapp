@@ -5,11 +5,11 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
-		<script src="js/mui.min.js"></script>
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link href="css/custom.css" rel="stylesheet" />
 		<link href="css/ionicons.min.css" rel="stylesheet" />
-
+		<link href="css/edu.css" rel="stylesheet" />
+		<link href="css/mui.picker.min.css" rel="stylesheet" />
 	</head>
 
 	<body>
@@ -36,6 +36,9 @@
 				</nav>
 				<div class="mui-content mui-scroll-wrapper">
 					<div class="mui-scroll">
+						<div class="mui-input-row mui-search" style="margin:13px 8px 0px 8px;">
+							<input id="txtKeyword" readonly="readonly" type="search" placeholder="请选择日期">
+						</div>
 						<div style="padding: 10px 5px;">
 							<div id="segmentedControl" class="mui-segmented-control">
 								<a id="myorder" class="mui-control-item mui-active" href="#item1">
@@ -80,4 +83,6 @@
 </html>
 <script src="js/mui.min.js"></script>
 <script src="js/util.js"></script>
+<script src="js/picker.min.js"></script>
+<script src="js/mui.poppicker.js"></script>
 <script src="js/script/ordersyewu.js"></script>

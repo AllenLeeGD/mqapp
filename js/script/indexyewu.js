@@ -7,6 +7,9 @@ mui.plusReady(function() {
 	document.getElementById("hsp").addEventListener("tap", function() {
 		document.location.href = "hspAdd.html";
 	});
+	document.getElementById("jm").addEventListener("tap", function() { 
+		document.location.href = "jmAdd.html";
+	});
 	document.getElementById("aHome").addEventListener("tap", function() {
 		document.location.href = "indexyewu.html";
 	}); 
