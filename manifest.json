@@ -3,7 +3,7 @@
 	"id": "H5B9189DA",/*应用的标识，创建应用时自动生成，勿手动修改*/
 	"name": "燃气管理",/*应用名称，程序桌面图标名称*/
 	"version": {
-		"name": "2.0.0",/*应用版本名称*/
+		"name": "2.2",/*应用版本名称*/
 		"code": "83"
 	},
 	"description": "燃气管理",/*应用描述信息*/
@@ -183,9 +183,9 @@
 				"android": {
 					"mdpi": "", /*普通屏启动图片，分辨率：240x282*/
 					"ldpi": "", /*大屏启动图片，分辨率：320x442*/
-					"hdpi": "/Users/lilin/Downloads/480.png", /*高分屏启动图片，分辨率：480x762*/
-					"xhdpi": "/Users/lilin/Downloads/720-2.png", /*720P高分屏启动图片，分辨率：720x1242*/
-					"xxhdpi": "/Users/lilin/Downloads/1080.png"
+					"hdpi": "images/480.png", /*高分屏启动图片，分辨率：480x762*/
+					"xhdpi": "images/720.png", /*720P高分屏启动图片，分辨率：720x1242*/
+					"xxhdpi": "images/1080.png"
 				}
 			}
 		}
