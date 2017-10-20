@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
- 
-	<head> 
+
+	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
@@ -10,65 +10,63 @@
 		<link href="css/ionicons.min.css" rel="stylesheet" />
 
 	</head>
-  
-	<body>  
-		<div id="info" class="mui-off-canvas-wrap mui-draggable mui-slide-in">
-			<div class="mui-inner-wrap">
-				<header class="mui-bar mui-bar-nav">
-					<h1 class="mui-title ft-white">
+
+	<body>
+		<div class="mui-inner-wrap">
+			<header class="mui-bar mui-bar-nav">
+				<h1 class="mui-title ft-white">
 						<span class="mui-icon ion-ios-flame ft-blue" style="font-size: 32px; margin-top: 8px;"></span>
 					</h1>
-					<a id="logout" class="mui-action-menu mui-pull-right">
-						<span class="mui-icon ion-log-out ft-blue"></span>
-					</a>
-				</header>
-				<nav class="mui-bar mui-bar-tab line-split">
-					<a id="aOrders" class="mui-tab-item ">
-						<span class="mui-icon ion-ios-search-strong"></span>
-						<span class="mui-tab-label">订单</span>
-					</a>
-					<a id="aHome" class="mui-tab-item mui-active">
-						<span class="mui-icon ion-android-calendar"></span>
-						<span class="mui-tab-label">发起</span>
-					</a>
-					
-					
-				</nav>
-				<div class="mui-content mui-scroll-wrapper">
-					<div class="mui-scroll">
-						<ul class="mui-table-view mui-table-view-chevron mt-5">
-							<li id="dgs" class="mui-table-view-cell">
-								<a class="mui-navigate-right font-size-14" id="a_tag">
-									<span class="mui-icon ion-android-cart mui-pull-left setting_icon ft-green font-size-18 mt-5"></span>
-									<div class="mui-media-body pd-4 ft-black">
-										大工商订气流程
-									</div>
-								</a>
-							</li>
-							<li id="jm" class="mui-table-view-cell">
-								<a class="mui-navigate-right font-size-14" id="a_success">
-									<span class="mui-icon ion-android-bicycle mui-pull-left setting_icon ft-yellow font-size-18 mt-5"></span>
-									<div class="mui-media-body pd-4 ft-black">
-										小工商及居民订气流程
-									</div>
-								</a>
-							</li>
-							<li id="hsp" class="mui-table-view-cell">
-								<a class="mui-navigate-right font-size-14" id="a_success">
-									<span class="mui-icon ion-android-folder-open mui-pull-left setting_icon ft-coffee font-size-18 mt-5"></span>
-									<div class="mui-media-body pd-4 ft-black">
-										大工商回收空瓶流程
-									</div>
-								</a>
-							</li>
-						</ul>
-					</div>
+				<a id="logout" class="mui-action-menu mui-pull-right">
+					<span class="mui-icon ion-log-out ft-blue"></span>
+				</a>
+			</header>
+			<nav class="mui-bar mui-bar-tab line-split">
+				<a id="aOrders" class="mui-tab-item ">
+					<span class="mui-icon ion-ios-search-strong"></span>
+					<span class="mui-tab-label">订单</span>
+				</a>
+				<a id="aHome" class="mui-tab-item mui-active">
+					<span class="mui-icon ion-android-calendar"></span>
+					<span class="mui-tab-label">发起</span>
+				</a>
+
+			</nav>
+			<div class="mui-content mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view mui-table-view-chevron mt-5">
+						<li id="dgs" class="mui-table-view-cell">
+							<a class="mui-navigate-right font-size-14" id="a_tag">
+								<span class="mui-icon ion-android-cart mui-pull-left setting_icon ft-green font-size-18 mt-5"></span>
+								<div class="mui-media-body pd-4 ft-black">
+									大工商订气流程
+								</div>
+							</a>
+						</li>
+						<li id="jm" class="mui-table-view-cell">
+							<a class="mui-navigate-right font-size-14" id="a_success">
+								<span class="mui-icon ion-android-bicycle mui-pull-left setting_icon ft-yellow font-size-18 mt-5"></span>
+								<div class="mui-media-body pd-4 ft-black">
+									小工商及居民订气流程
+								</div>
+							</a>
+						</li>
+						<li id="hsp" class="mui-table-view-cell">
+							<a class="mui-navigate-right font-size-14" id="a_success">
+								<span class="mui-icon ion-android-folder-open mui-pull-left setting_icon ft-coffee font-size-18 mt-5"></span>
+								<div class="mui-media-body pd-4 ft-black">
+									大工商回收空瓶流程
+								</div>
+							</a>
+						</li>
+					</ul>
 				</div>
-				<!-- off-canvas backdrop -->
-				<div class="mui-off-canvas-backdrop"></div>
 			</div>
+			<!-- off-canvas backdrop -->
+			<div class="mui-off-canvas-backdrop"></div>
 		</div>
 	</body>
+
 </html>
 <script src="js/mui.min.js"></script>
 <script src="js/util.js"></script>

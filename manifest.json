@@ -3,7 +3,7 @@
 	"id": "H5B9189DA",/*应用的标识，创建应用时自动生成，勿手动修改*/
 	"name": "燃气管理",/*应用名称，程序桌面图标名称*/
 	"version": {
-		"name": "2.2",/*应用版本名称*/
+		"name": "2.4",/*应用版本名称*/
 		"code": "83"
 	},
 	"description": "燃气管理",/*应用描述信息*/
@@ -245,7 +245,11 @@
 					"css/custom.css",
 					"fonts/ionicons.ttf",
 					"login.html",
-					"yewudetail.html"
+					"yewudetail.html",
+					"css/edu.css",
+					"js/mui.poppicker.js",
+					"css/mui.picker.min.css",
+					"js/picker.min.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -353,7 +357,16 @@
 					"login.html",
 					"fonts/mui.ttf",
 					"fonts/ionicons.ttf",
-					"index.html"
+					"index.html",
+					"css/edu.css",
+					"js/mui.poppicker.js",
+					"css/mui.picker.min.css",
+					"js/picker.min.js",
+					"css/ionicons.min.css",
+					"js/util.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"css/custom.css"
 				],
 				"refer": [],
 				"priority": 0

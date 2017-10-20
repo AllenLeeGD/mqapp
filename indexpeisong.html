@@ -13,63 +13,62 @@
 	</head>
 
 	<body>
-		<div id="info" class="mui-off-canvas-wrap mui-draggable mui-slide-in">
-			<div class="mui-inner-wrap">
-				<header class="mui-bar mui-bar-nav">
-					<h1 class="mui-title ft-white">
+		<div class="mui-inner-wrap">
+			<header class="mui-bar mui-bar-nav">
+				<h1 class="mui-title ft-white">
 						<span class="mui-icon ion-ios-flame ft-blue" style="font-size: 32px; margin-top: 8px;"></span>
 					</h1>
-					<a id="logout" class="mui-action-menu mui-pull-right">
-						<span class="mui-icon ion-log-out ft-blue"></span>
-					</a>
-				</header>
-				<nav class="mui-bar mui-bar-tab line-split">
-					<a id="aHome" class="mui-tab-item mui-active">
-						<span class="mui-icon mui-icon-home-filled"></span>
-						<span class="mui-tab-label">待配送</span>
-					</a>
-					<a id="aOrders" class="mui-tab-item">
-						<span class="mui-icon ion-ios-search-strong"></span>
-						<span class="mui-tab-label">已配送</span>
-					</a>
-					
-				</nav>
-				<div class="mui-content mui-scroll-wrapper">
-					<div class="mui-scroll">
-						<div class="mui-input-row mui-search" style="margin:13px 8px 0px 8px;">
-							<input id="txtKeyword" readonly="readonly" type="search" placeholder="请选择日期">
-						</div>
-						<div id="orders"></div>
-						<div id="order_template" style="display: none;"> 
-							<ul name="order_item" pkid="${pkid}" typeval="${typeval}" class="mui-table-view line-split-2" >
-								<li class="mui-table-view-cell mui-media">
-									<span class="mui-pull-left mt-5">
+				<a id="logout" class="mui-action-menu mui-pull-right">
+					<span class="mui-icon ion-log-out ft-blue"></span>
+				</a>
+			</header>
+			<nav class="mui-bar mui-bar-tab line-split">
+				<a id="aHome" class="mui-tab-item mui-active">
+					<span class="mui-icon mui-icon-home-filled"></span>
+					<span class="mui-tab-label">待配送</span>
+				</a>
+				<a id="aOrders" class="mui-tab-item">
+					<span class="mui-icon ion-ios-search-strong"></span>
+					<span class="mui-tab-label">已配送</span>
+				</a>
+
+			</nav>
+			<div class="mui-content mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div class="mui-input-row mui-search" style="margin:13px 8px 0px 8px;">
+						<input id="txtKeyword" readonly="readonly" type="search" placeholder="请选择日期">
+					</div>
+					<div id="orders"></div>
+					<div id="order_template" style="display: none;">
+						<ul name="order_item" pkid="${pkid}" typeval="${typeval}" class="mui-table-view line-split-2">
+							<li class="mui-table-view-cell mui-media">
+								<span class="mui-pull-left mt-5">
 									<img src="images/folder-document-icon.png" style="width:40px;height:40px;" />
-									</span> 
-									<div class="mui-media-body" style="padding-left:10px;">
-										<p class="font-size-12">
-											<span class="ft-black">${username}</span>&nbsp;<span class="ft-red font-size-12">${dgsstatus}</span><br/>${buytime}&nbsp;
-										</p>
-										<p class="ft-black font-size-12" style="line-height:24px;">
-											客户名称:${buyername}
-										</p>
-										<p class="ft-black font-size-12" style="line-height:24px;">
-											客户地址:${buyeraddress}
-										</p>
-										<p class="ft-black font-size-12" style="line-height:24px;">
-											联系电话:${buyermobile}
-										</p>
-									</div>
-								</li>
-							</ul>
-						</div>
+									</span>
+								<div class="mui-media-body" style="padding-left:10px;">
+									<p class="font-size-12">
+										<span class="ft-black">${username}</span>&nbsp;<span class="ft-red font-size-12">${dgsstatus}</span><br/>${buytime}&nbsp;
+									</p>
+									<p class="ft-black font-size-12" style="line-height:24px;">
+										客户名称:${buyername}
+									</p>
+									<p class="ft-black font-size-12" style="line-height:24px;">
+										客户地址:${buyeraddress}
+									</p>
+									<p class="ft-black font-size-12" style="line-height:24px;">
+										联系电话:${buyermobile}
+									</p>
+								</div>
+							</li>
+						</ul>
 					</div>
 				</div>
-				<!-- off-canvas backdrop -->
-				<div class="mui-off-canvas-backdrop"></div>
 			</div>
+			<!-- off-canvas backdrop -->
+			<div class="mui-off-canvas-backdrop"></div>
 		</div>
 	</body>
+
 </html>
 <script src="js/mui.min.js"></script>
 <script src="js/util.js"></script>

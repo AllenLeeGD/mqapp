@@ -162,12 +162,22 @@ function print(mac_address) {
         outputStream.flush();
         device = null //这里关键
         bluetoothSocket.close(); //必须关闭蓝牙连接否则意外断开的话打印错误
-
+		
     }
 
 }
 var print_obj = {};
 print_obj.details = new Array();
+function arrive(){
+	var util = new Util();
+	var pkid = util.getParam("orderid");
+	mui.ajax(edu_host + '/index.php/Mq/Mobileorder/arrive/orderid/'+pkid, {
+		type: 'post',
+		success: function(data) {
+						
+		}
+	});
+}
 function loadjm() {
 	var util = new Util();
 	var pkid = util.getParam("orderid");
@@ -223,4 +233,5 @@ mui.plusReady(function() {
 	mui(".mui-scroll-wrapper").scroll();	
 	loadjm();
 	loaddetail();
+	arrive();
 });

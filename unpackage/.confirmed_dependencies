@@ -60,7 +60,11 @@
       "css/custom.css",
       "fonts/ionicons.ttf",
       "login.html",
-      "yewudetail.html"
+      "yewudetail.html",
+      "css/edu.css",
+      "js/mui.poppicker.js",
+      "css/mui.picker.min.css",
+      "js/picker.min.js"
     ],
     "refer": [
       "indexyewu.html",
@@ -182,7 +186,16 @@
       "login.html",
       "fonts/mui.ttf",
       "fonts/ionicons.ttf",
-      "index.html"
+      "index.html",
+      "css/edu.css",
+      "js/mui.poppicker.js",
+      "css/mui.picker.min.css",
+      "js/picker.min.js",
+      "css/ionicons.min.css",
+      "js/util.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/custom.css"
     ],
     "refer": [
       "peisongdetail.html",
@@ -240,7 +253,9 @@
       "indexpeisong.html"
     ],
     "refer": [
-      "indexpeisong.html"
+      "indexpeisong.html",
+      "login.html",
+      "ordersyewu.html"
     ]
   }
 }
