@@ -18,6 +18,8 @@ function loadjm() {
 				document.getElementById("btnWeixin").disabled=true;
 			}else if(data.jmstatus==6){
 				dgsstatusstr = "已核款"; 
+			}else if(data.jmstatus==8){
+				dgsstatusstr = "已送达"; 
 			}
 			document.getElementById("orderstatus").innerHTML = dgsstatusstr;
 			document.getElementById("price").innerHTML = " ￥"+data.price;

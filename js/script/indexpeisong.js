@@ -23,6 +23,8 @@ function loaddata(status) {
 					template = template.replace("\$\{dgsstatus\}", "已存款");
 				} else if(item.jmstatus == 6) {
 					template = template.replace("\$\{dgsstatus\}", "已核款");
+				} else if(item.jmstatus == 8) {
+					template = template.replace("\$\{dgsstatus\}", "已送达");
 				}
 
 				template = template.replace("\$\{buytime\}", new Date(item.setpeopleopttime * 1000).Format("yyyy-MM-dd hh:mm:ss"));

@@ -155,6 +155,7 @@ function print(mac_address) {
         		}
         		printstring+="****************************\r\n";
         		printstring+="      "+nowdate.Format("yyyy-MM-dd hh:mm:ss")+"\r\n";
+        		printstring+="      订气热线:962299\r\n";
         		printstring+="  \r\n  \r\n  \r\n  \r\n";
         }
         var bytes = plus.android.invoke(printstring+printstring+printstring, 'getBytes', 'gbk');
