@@ -128,11 +128,12 @@ function print(mac_address) {
         console.log('检测到设备未连接，尝试连接....');
         bluetoothSocket.connect();
     }
-
+	
     console.log('设备已连接');
 	var nowdate = new Date();
     if (bluetoothSocket.isConnected()) {
     		var util = new Util();
+    		util.putvalueincache("btprinter",mac_address);
         var outputStream = bluetoothSocket.getOutputStream();
         plus.android.importClass(outputStream);
         var printstring = "            新海燃气\r\n";
@@ -168,6 +169,7 @@ function print(mac_address) {
 
 }
 var print_obj = {};
+
 print_obj.details = new Array();
 function arrive(){
 	var util = new Util();
@@ -205,7 +207,7 @@ function loadjm() {
 			print_obj.songqinameL = "送气工:  "+(util.isNullStr(data.songqiname)?"":data.songqiname);
 			print_obj.carnumber = "配送车辆:  "+(util.isNullStr(data.carnumber)?"":data.carnumber);
 //			document.getElementById("setpeopleopttime").innerHTML = "设置配送时间:  "+(util.isNullStr(data.setpeopleopttime)?"":(new Date(data.setpeopleopttime*1000).Format("yyyy-MM-dd hh:mm:ss")));
-			
+			preprint();
 		}
 	});
 } 
@@ -225,9 +227,19 @@ function loaddetail() {
 //				template = template.replace("\$\{bottleprice\}", "￥"+item.bottleprice);
 				
 				print_obj.details.push(item);
-			}	
+			}
+			preprint();
 		}
 	});
+}
+function preprint(){
+	var util = new Util();
+	var printer = util.getvalueincache("btprinter");
+	if(!util.isNullStr(printer)){
+		if(!util.isNullStr(print_obj.orderid) && print_obj.details.length>0){
+			print(printer);	
+		}			
+	}
 }
 mui.plusReady(function() {
 	mui.init();

@@ -36,9 +36,20 @@ function loadjm() {
 			document.getElementById("songqiname").innerHTML = "送气工:  "+(util.isNullStr(data.songqiname)?"":data.songqiname);
 			document.getElementById("carnumber").innerHTML = "配送车辆:  "+(util.isNullStr(data.carnumber)?"":data.carnumber);
 			document.getElementById("setpeopleopttime").innerHTML = "设置配送时间:  "+(util.isNullStr(data.setpeopleopttime)?"":(new Date(data.setpeopleopttime*1000).Format("yyyy-MM-dd hh:mm:ss")));
+			document.getElementById("setpeopleopttime").innerHTML = "到达时间:  "+(util.isNullStr(data.arrivetime)?"":(new Date(data.arrivetime*1000).Format("yyyy-MM-dd hh:mm:ss")));
 			
 			document.getElementById("h_totalfee").value = data.price;
 			document.getElementById("h_orderid").value = data.pkid;
+			var status = util.getParam("status");
+			if(status=="my"){
+				if(data.printflag==1){//已经打印过订单
+					document.getElementById("btnWxDiv").style.display="";
+					document.getElementById("btnArriveDiv").style.display="";
+				}else{
+					document.getElementById("btnPrintDiv").style.display="";
+					document.getElementById("btnWxDiv").style.display="";
+				}
+			}
 		}
 	});
 } 
@@ -78,15 +89,23 @@ document.getElementById("btnWeixin").addEventListener("tap",function(){
 	});
 	}
 });
+
+document.getElementById("btnArrive").addEventListener("tap",function(){
+	var util = new Util();
+	var orderid = util.getParam("orderid"); 
+	mui.ajax(edu_host + '/index.php/Mq/Mobileorder/arrive/orderid/'+orderid, {
+		type: 'post',
+		success: function(data) {
+			mui.toast("操作成功");
+			setTimeout(function(){
+				document.location.href="indexpeisong.html";
+			},1000);
+		}
+	});
+});
 mui.plusReady(function() {
 	mui.init();
 	mui(".mui-scroll-wrapper").scroll();	
-	var util = new Util();
-	var status = util.getParam("status");
-	if(status=="my"){
-		document.getElementById("btnPrintDiv").style.display="";
-		document.getElementById("btnWxDiv").style.display="";
-	}
 	loadjm();
 	loaddetail();
 });

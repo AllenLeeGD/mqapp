@@ -12,13 +12,16 @@
       "indexyewu.html",
       "indexchedui.html",
       "ordersyewu.html",
-      "indexpeisong.html"
+      "indexpeisong.html",
+      "images/256256.png",
+      "index.html"
     ],
     "refer": [
       "indexyewu.html",
       "indexchedui.html",
       "ordersyewu.html",
-      "indexpeisong.html"
+      "indexpeisong.html",
+      "index.html"
     ]
   },
   "indexyewu.html": {

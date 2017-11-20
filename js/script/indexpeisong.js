@@ -33,7 +33,7 @@ function loaddata(status) {
 				template = template.replace("\$\{buyermobile\}", item.buyermobile);
 				result += template;
 			}
-			if(result == "") {
+			if(result == "") {  
 				result = "<ul class=\"mui-table-view mt-10\" style=\"text-align:center;\"><li style=\"text-align:center;padding-top:20px;padding-bottom:20px;\"><span class=\"font-size-14 ft-grey\">没有订单</span></li></ul>";
 			}
 			document.getElementById("orders").innerHTML = result;
